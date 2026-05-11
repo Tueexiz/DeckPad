@@ -236,9 +236,24 @@
       <section id="view-settings" class="view">
         <div class="settings-container">
           <div class="settings-group">
-            <h3>Paramètres</h3>
+            <h3>Appareil</h3>
+            <div class="setting-item">
+              <span class="setting-label">PC Connecté</span>
+              <span class="setting-value" id="setting-pc-name">--</span>
+            </div>
+            <div class="setting-item">
+              <span class="setting-label">Mode de connexion</span>
+              <span class="setting-value" id="setting-mode">--</span>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h3>Contrôles</h3>
             <div class="mixer-channel">
-               <span>Sensibilité Touchpad</span>
+               <div class="setting-header">
+                 <span>Sensibilité Touchpad</span>
+                 <span class="setting-badge" id="setting-sensitivity-value">8</span>
+               </div>
                <input type="range" id="setting-sensitivity" min="1" max="20" value="8">
             </div>
           </div>

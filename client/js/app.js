@@ -106,11 +106,14 @@ class DeckPadApp {
 
         // Stocker le nom du PC
         if (result.pcName) {
-          document.getElementById('header-pc-name').textContent = result.pcName;
-          document.getElementById('setting-pc-name').textContent = result.pcName;
+          const headerPc = document.getElementById('header-pc-name');
+          const settingPc = document.getElementById('setting-pc-name');
+          if (headerPc) headerPc.textContent = result.pcName;
+          if (settingPc) settingPc.textContent = result.pcName;
         }
 
-        document.getElementById('setting-mode').textContent = mode === 'usb' ? 'USB' : 'WiFi';
+        const settingMode = document.getElementById('setting-mode');
+        if (settingMode) settingMode.textContent = mode === 'usb' ? 'USB' : 'WiFi';
 
         // Afficher l'app principale
         document.getElementById('view-connect').classList.remove('active');
@@ -215,7 +218,8 @@ class DeckPadApp {
         if (targetView) targetView.classList.add('active');
 
         // Update header
-        document.getElementById('header-title').textContent = titles[viewId] || '';
+        const headerTitle = document.getElementById('header-title');
+        if (headerTitle) headerTitle.textContent = titles[viewId] || '';
 
         this.currentView = viewId;
         if (navigator.vibrate) navigator.vibrate(10);
@@ -318,7 +322,7 @@ class DeckPadApp {
     const fpsValue = document.getElementById('setting-fps-value');
     if (fpsRange) {
       fpsRange.addEventListener('input', () => {
-        fpsValue.textContent = fpsRange.value;
+        if (fpsValue) fpsValue.textContent = fpsRange.value;
       });
     }
 
@@ -327,7 +331,7 @@ class DeckPadApp {
     const qualityValue = document.getElementById('setting-quality-value');
     if (qualityRange) {
       qualityRange.addEventListener('input', () => {
-        qualityValue.textContent = qualityRange.value;
+        if (qualityValue) qualityValue.textContent = qualityRange.value;
       });
     }
 
@@ -337,7 +341,7 @@ class DeckPadApp {
     if (sensRange) {
       sensRange.addEventListener('input', () => {
         this.sensitivity = parseInt(sensRange.value);
-        sensValue.textContent = sensRange.value;
+        if (sensValue) sensValue.textContent = sensRange.value;
       });
     }
 
@@ -356,8 +360,10 @@ class DeckPadApp {
   _setupConnection() {
     // Handler pour les infos PC
     this.conn.on('pc_info', (msg) => {
-      document.getElementById('header-pc-name').textContent = msg.pcName || 'PC';
-      document.getElementById('setting-pc-name').textContent = msg.pcName || 'PC';
+      const headerPc = document.getElementById('header-pc-name');
+      const settingPc = document.getElementById('setting-pc-name');
+      if (headerPc) headerPc.textContent = msg.pcName || 'PC';
+      if (settingPc) settingPc.textContent = msg.pcName || 'PC';
     });
 
     // Erreurs

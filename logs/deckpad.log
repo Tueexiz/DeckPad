@@ -34,3 +34,32 @@
 [INFO] 2026-05-11T20:03:19.945Z [ConnectionManager] Client authentifié
 [INFO] 2026-05-11T20:03:25.295Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
 [INFO] 2026-05-11T20:03:25.304Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:03:58.455Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-11T20:03:59.100Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-11T20:03:59.116Z [ConnectionManager] Manager prêt {"pin":"4798"}
+[INFO] 2026-05-11T20:03:59.130Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-11T20:04:05.031Z [Server] Mise à jour disponible {"version":"1.14.48","url":"https://github.com/anomalyco/opencode/releases/tag/v1.14.48","publishedAt":"2026-05-11T02:07:50Z"}
+[INFO] 2026-05-11T20:04:13.755Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[WARN] 2026-05-11T20:04:13.763Z [ConnectionManager] Échec authentification {"pinTried":"7386"}
+[INFO] 2026-05-11T20:04:13.768Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:04:13.768Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-11T20:04:29.166Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[WARN] 2026-05-11T20:04:29.179Z [ConnectionManager] Échec authentification {"pinTried":"4789"}
+[INFO] 2026-05-11T20:04:29.186Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:04:29.186Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-11T20:04:30.643Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[WARN] 2026-05-11T20:04:30.646Z [ConnectionManager] Échec authentification {"pinTried":"4789"}
+[INFO] 2026-05-11T20:04:30.649Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:04:30.650Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-11T20:04:36.530Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:04:36.543Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:04:43.541Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:04:43.542Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:04:44.086Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:04:44.098Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:04:45.284Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:04:45.294Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:06:16.497Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:06:16.498Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:06:16.500Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:06:16.500Z [AudioMeter] Peak meter arrêté
