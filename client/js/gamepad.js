@@ -58,7 +58,29 @@ class GamepadController {
           size: 100
         });
 
-        // ... event handlers for leftJoy ...
+        let activeKeys = new Set();
+        leftJoy.on('move', (evt, data) => {
+          if (!conn.isReady()) return;
+          const keysToPress = new Set();
+          if (data.direction) {
+            if (data.direction.y === 'up') keysToPress.add('w');
+            if (data.direction.y === 'down') keysToPress.add('s');
+            if (data.direction.x === 'left') keysToPress.add('a');
+            if (data.direction.x === 'right') keysToPress.add('d');
+          }
+          for (const k of activeKeys) {
+            if (!keysToPress.has(k)) conn.send({ type: 'key_up', key: k });
+          }
+          for (const k of keysToPress) {
+            if (!activeKeys.has(k)) conn.send({ type: 'key_down', key: k });
+          }
+          activeKeys = keysToPress;
+        });
+
+        leftJoy.on('end', () => {
+          for (const k of activeKeys) conn.send({ type: 'key_up', key: k });
+          activeKeys.clear();
+        });
       }
 
       const rightZone = document.getElementById('joystick-right');
@@ -71,57 +93,22 @@ class GamepadController {
           size: 100
         });
 
-        // ... event handlers for rightJoy ...
+        let mouseInterval = null;
+        rightJoy.on('move', (evt, data) => {
+          if (!conn.isReady()) return;
+          if (mouseInterval) clearInterval(mouseInterval);
+          const speed = (data.distance / 50) * 15; 
+          const dx = Math.cos(data.angle.radian) * speed;
+          const dy = -Math.sin(data.angle.radian) * speed;
+          mouseInterval = setInterval(() => {
+            conn.send({ type: 'mouse_move_relative', dx: Math.round(dx), dy: Math.round(dy) });
+          }, 16);
+        });
+
+        rightJoy.on('end', () => {
+          if (mouseInterval) clearInterval(mouseInterval);
+        });
       }
-
-      // Gestion Joystick Gauche (Simulation touches ZQSD)
-      let activeKeys = new Set();
-      leftJoy.on('move', (evt, data) => {
-        if (!conn.isReady()) return;
-        const keysToPress = new Set();
-        
-        if (data.direction) {
-          if (data.direction.y === 'up') keysToPress.add('w');
-          if (data.direction.y === 'down') keysToPress.add('s');
-          if (data.direction.x === 'left') keysToPress.add('a');
-          if (data.direction.x === 'right') keysToPress.add('d');
-        }
-
-        // Relâcher les anciennes touches
-        for (const k of activeKeys) {
-          if (!keysToPress.has(k)) conn.send({ type: 'key_up', key: k });
-        }
-        // Appuyer les nouvelles
-        for (const k of keysToPress) {
-          if (!activeKeys.has(k)) conn.send({ type: 'key_down', key: k });
-        }
-        activeKeys = keysToPress;
-      });
-
-      leftJoy.on('end', () => {
-        for (const k of activeKeys) conn.send({ type: 'key_up', key: k });
-        activeKeys.clear();
-      });
-
-      // Gestion Joystick Droit (Simulation souris)
-      let mouseInterval = null;
-      rightJoy.on('move', (evt, data) => {
-        if (!conn.isReady()) return;
-        if (mouseInterval) clearInterval(mouseInterval);
-        
-        // La distance donne la vitesse
-        const speed = (data.distance / 50) * 15; 
-        const dx = Math.cos(data.angle.radian) * speed;
-        const dy = -Math.sin(data.angle.radian) * speed;
-
-        mouseInterval = setInterval(() => {
-          conn.send({ type: 'mouse_move_relative', dx: Math.round(dx), dy: Math.round(dy) });
-        }, 16); // ~60fps
-      });
-
-      rightJoy.on('end', () => {
-        if (mouseInterval) clearInterval(mouseInterval);
-      });
 
     }, 500); // Wait for DOM / Library load
   }
