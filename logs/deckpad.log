@@ -182,3 +182,28 @@
 [INFO] 2026-05-11T20:15:54.609Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
 [INFO] 2026-05-11T20:15:54.609Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
 [INFO] 2026-05-11T20:15:54.624Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:16:12.190Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:16:12.191Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:16:12.194Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:16:12.194Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-11T20:16:19.933Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:16:19.939Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:16:20.131Z [AudioMeter] Démarrage peak meter
+[INFO] 2026-05-11T20:18:12.924Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:18:12.925Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:18:16.008Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:18:21.500Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:18:21.513Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:20:28.007Z [AudioManager] Application profil audio {"name":"stream","profile":{"master":50,"mic":90}}
+[INFO] 2026-05-11T20:20:29.191Z [AudioManager] Application profil audio {"name":"musique","profile":{"master":70,"mic":0}}
+[INFO] 2026-05-11T20:20:29.734Z [AudioManager] Application profil audio {"name":"stream","profile":{"master":50,"mic":90}}
+[INFO] 2026-05-11T20:24:36.347Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:28:14.214Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[WARN] 2026-05-11T20:28:14.214Z [ConnectionManager] Échec authentification {"pinTried":"9614"}
+[INFO] 2026-05-11T20:28:14.216Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:29:00.284Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:29:00.285Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-11T20:29:00.295Z [AudioMeter] Peak meter terminé {"code":null}
+[INFO] 2026-05-11T20:29:06.947Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:29:06.951Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:29:07.161Z [AudioMeter] Démarrage peak meter

@@ -1,0 +1,559 @@
+/* ═══════════════════════════════════════════════════════════
+   DECKPAD PRO — RESPONSIVE / TABLET
+   Adapts the full UI to tablets (600-1024px) and phones (<600px)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Tablet Landscape (max 1024px) ─── */
+@media (max-width: 1024px) {
+  :root {
+    --deck-btn-size: 72px;
+    --deck-btn-depth: 6px;
+    --deck-press-depth: 3px;
+    --nav-height: 65px;
+  }
+
+  #app-header {
+    padding: 10px 16px;
+  }
+
+  .header-title {
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  .header-pc-name {
+    font-size: 13px;
+  }
+
+  /* Dashboard */
+  .dashboard-grid {
+    padding: var(--space-lg);
+    gap: var(--space-xl);
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  /* Stream Deck */
+  .stream-deck-chassis {
+    padding: 16px;
+    border-radius: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .stream-deck-grid {
+    grid-template-columns: repeat(var(--deck-cols, 4), 1fr) !important;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .deck-key {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* Square aspect ratio */
+  }
+
+  .deck-key .key-face-top {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Apps */
+  .apps-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .app-tile {
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .app-tile-icon {
+    font-size: 2rem;
+  }
+
+  .app-tile-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .app-tile-name {
+    font-size: 0.75rem;
+  }
+
+  /* Quick actions */
+  .quick-actions {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Nav */
+  #bottom-nav {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    border-radius: 28px;
+  }
+
+  .nav-btn .nav-label {
+    font-size: 9px;
+  }
+
+  /* Soundboard */
+  .soundboard-container {
+    padding: var(--space-lg);
+  }
+
+  .sound-pads {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  .sound-pad {
+    padding: 14px;
+    font-size: 10px;
+  }
+
+  /* Monitor */
+  .monitor-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+  }
+
+  .gauge-card {
+    width: 45%;
+    max-width: 200px;
+  }
+
+  /* Settings */
+  .settings-container {
+    padding: var(--space-lg);
+  }
+
+  /* Controls */
+  .controls-container {
+    grid-template-columns: 1fr 60px;
+    padding: var(--space-md);
+  }
+
+  /* Mixer */
+  .mixer-grid {
+    gap: var(--space-md);
+  }
+}
+
+/* ─── Tablet Portrait / Large Phone (max 768px) ─── */
+@media (max-width: 768px) {
+  :root {
+    --deck-btn-size: 64px;
+    --nav-height: 60px;
+  }
+
+  #app-header {
+    padding: 8px 12px;
+  }
+
+  .header-title {
+    font-size: 12px;
+  }
+
+  .header-pc-name {
+    font-size: 12px;
+  }
+
+  .status-pill {
+    font-size: 9px;
+    padding: 3px 8px;
+  }
+
+  /* Dashboard */
+  .dashboard-grid {
+    padding: var(--space-md);
+    gap: var(--space-lg);
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .stat-card {
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+  }
+
+  .stat-value {
+    font-size: 1.1rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
+
+  /* Stream Deck — fit in viewport */
+  .stream-deck-chassis {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .stream-deck-chassis .deck-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-bottom: 3px;
+  }
+
+  .stream-deck-grid {
+    gap: 8px;
+  }
+
+  .deck-key .key-face-top svg,
+  .deck-key .key-face-top i {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Apps */
+  .apps-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: var(--space-sm);
+  }
+
+  .app-tile {
+    padding: var(--space-md) var(--space-xs);
+    border-radius: var(--radius-lg);
+  }
+
+  .app-tile-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .app-tile-name {
+    font-size: 0.7rem;
+  }
+
+  /* Quick actions */
+  .quick-actions {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .action-btn {
+    padding: 12px 4px;
+    font-size: 0.7rem;
+  }
+
+  /* Nav */
+  #bottom-nav {
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    height: var(--nav-height);
+    border-radius: 24px;
+  }
+
+  .nav-btn {
+    padding: 8px 0;
+    gap: 2px;
+  }
+
+  .nav-btn .nav-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nav-btn .nav-label {
+    font-size: 8px;
+  }
+
+  /* Soundboard */
+  .media-player-pro {
+    padding: 14px;
+  }
+
+  #media-title {
+    font-size: 1rem;
+  }
+
+  #media-artist {
+    font-size: 0.85rem;
+  }
+
+  .media-btn-pro {
+    width: 40px;
+    height: 40px;
+  }
+
+  .media-btn-pro.play {
+    width: 48px;
+    height: 48px;
+  }
+
+  .sound-pads {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Monitor gauges */
+  .monitor-container {
+    gap: var(--space-md);
+    padding: var(--space-md);
+  }
+
+  .gauge-card {
+    width: 42%;
+    padding: var(--space-md);
+  }
+
+  .gauge-ring svg {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Controls */
+  .controls-container {
+    grid-template-columns: 1fr 50px;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+  }
+
+  .touchpad-label {
+    font-size: 1rem;
+  }
+
+  .touchpad-hint {
+    font-size: 0.75rem;
+  }
+
+  .touchpad-btn {
+    padding: 14px;
+    font-size: 0.8rem;
+  }
+
+  /* Keyboard */
+  .keyboard-container {
+    padding: var(--space-sm);
+    margin: var(--space-sm);
+  }
+
+  .key-btn {
+    min-width: 28px;
+    height: 38px;
+    font-size: 0.75rem;
+    padding: 0 4px;
+  }
+
+  .key-btn.wide {
+    min-width: 48px;
+  }
+
+  .key-btn.wider {
+    min-width: 56px;
+  }
+
+  .key-btn.space {
+    min-width: 120px;
+  }
+
+  .shortcut-btn {
+    padding: 8px 14px;
+    font-size: 0.75rem;
+  }
+
+  /* Settings */
+  .settings-container {
+    padding: var(--space-md);
+  }
+
+  .settings-group h3 {
+    font-size: 0.85rem;
+  }
+
+  .setting-item,
+  .settings-toggle {
+    padding: 10px 0;
+    font-size: 0.85rem;
+  }
+
+  .setting-label {
+    font-size: 0.8rem;
+  }
+
+  .setting-value {
+    font-size: 0.75rem;
+  }
+
+  /* Toasts */
+  .toast {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+
+  /* Banners */
+  .banner {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+}
+
+/* ─── Small Phone (max 480px) ─── */
+@media (max-width: 480px) {
+  :root {
+    --nav-height: 55px;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stream-deck-chassis {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .stream-deck-grid {
+    gap: 6px;
+  }
+
+  .deck-key .key-face-top svg,
+  .deck-key .key-face-top i {
+    width: 18px;
+    height: 18px;
+  }
+
+  .apps-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .quick-actions {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #bottom-nav {
+    bottom: 6px;
+    left: 6px;
+    right: 6px;
+    border-radius: 20px;
+  }
+
+  .sound-pads {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gauge-card {
+    width: 45%;
+  }
+
+  .controls-container {
+    grid-template-columns: 1fr 45px;
+  }
+
+  .key-btn {
+    min-width: 24px;
+    height: 34px;
+    font-size: 0.65rem;
+    border-radius: 6px;
+  }
+}
+
+/* ─── Very Small (max 380px) ─── */
+@media (max-width: 380px) {
+  .stream-deck-grid {
+    gap: 4px;
+  }
+
+  .deck-key .key-face-top svg,
+  .deck-key .key-face-top i {
+    width: 16px;
+    height: 16px;
+  }
+
+  .apps-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .app-tile {
+    padding: 10px 4px;
+  }
+
+  .app-tile-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .app-tile-name {
+    font-size: 0.6rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LANDSCAPE MODE — Optimize for landscape tablets
+   ═══════════════════════════════════════════════════════════ */
+@media (orientation: landscape) and (max-height: 600px) {
+  #app-header {
+    padding: 6px 12px;
+  }
+
+  .header-title {
+    font-size: 11px;
+  }
+
+  #main-app > .view {
+    padding-bottom: calc(var(--nav-height) + 10px);
+  }
+
+  #bottom-nav {
+    bottom: 6px;
+    height: 50px;
+    border-radius: 18px;
+  }
+
+  .nav-btn .nav-label {
+    display: none;
+  }
+
+  .nav-btn .nav-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .dashboard-grid {
+    padding: var(--space-sm) var(--space-md);
+    gap: var(--space-md);
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+  }
+
+  .stream-deck-chassis {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .apps-grid {
+    flex: 1;
+    min-width: 200px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SAFE AREA — For notch/rounded-corner devices
+   ═══════════════════════════════════════════════════════════ */
+@supports (padding: env(safe-area-inset-bottom)) {
+  #bottom-nav {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  #app-header {
+    padding-top: max(10px, env(safe-area-inset-top, 0px));
+  }
+}

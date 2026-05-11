@@ -30,6 +30,7 @@ const CSS_ORDER = [
   'css/global-3d.css',
   'css/components.css',
   'css/premium.css',
+  'css/responsive.css',
 ];
 
 const JS_ORDER = [
