@@ -37,6 +37,9 @@ const JS_ORDER = [
   'js/app.js',
   'js/system-dashboard.js',
   'js/spectrum.js',
+  'js/screen-viewer.js',
+  'js/virtual-keyboard.js',
+  'js/gamepad.js',
   'js/premium.js',
 ];
 
