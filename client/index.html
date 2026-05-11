@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/vendor/lucide.min.js"></script>
   <link rel="stylesheet" href="css/design-system.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/stream-deck.css">
@@ -88,7 +88,7 @@
         </div>
       </header>
 
-      <!-- VUE DASHBOARD -->
+      <!-- ═══════ VUE DASHBOARD ═══════ -->
       <section id="view-dashboard" class="view active">
         <div class="dashboard-grid">
           <div class="stats-row">
@@ -143,12 +143,77 @@
           </div>
 
           <div class="apps-grid" id="apps-grid">
-            <!-- Apps directes -->
+            <!-- Apps dynamiques -->
           </div>
         </div>
       </section>
 
-      <!-- VUE SOUNDBOARD -->
+      <!-- ═══════ VUE ÉCRAN (Screen Viewer) ═══════ -->
+      <section id="view-screen" class="view">
+        <div class="screen-container">
+          <canvas id="screen-canvas"></canvas>
+          <div class="screen-overlay" id="screen-overlay">
+            <div class="screen-controls">
+              <i data-lucide="monitor" style="width:48px;height:48px;color:var(--blue-500);"></i>
+              <p style="color:var(--gray-300);font-weight:600;">Streaming Écran PC</p>
+              <div style="display:flex;gap:12px;align-items:center;">
+                <select id="select-quality" class="screen-select">
+                  <option value="low">480p</option>
+                  <option value="medium" selected>720p</option>
+                  <option value="high">1080p</option>
+                </select>
+                <button id="btn-stream-toggle" class="screen-btn">
+                  <i data-lucide="play"></i> Démarrer le stream
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="screen-touch-info" class="screen-touch-info hidden">
+            Tap = clic · Glisser = déplacer · 2 doigts = scroll · Maintenir = clic droit
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ VUE CONTRÔLE PC (Mouse + Keyboard) ═══════ -->
+      <section id="view-mouse-keyboard" class="view">
+        <div class="controls-container">
+          <!-- Touchpad -->
+          <div class="touchpad-area" id="touchpad-area">
+            <span class="touchpad-label">Touchpad</span>
+            <span class="touchpad-hint">Glisse pour déplacer la souris</span>
+          </div>
+
+          <!-- Zone scroll -->
+          <div class="scroll-area" id="scroll-area">
+            <span class="scroll-label">SCROLL</span>
+          </div>
+
+          <!-- Boutons souris -->
+          <div class="touchpad-buttons">
+            <button class="touchpad-btn" id="btn-click-left">Clic G</button>
+            <button class="touchpad-btn" id="btn-click-middle">Mid</button>
+            <button class="touchpad-btn" id="btn-click-right">Clic D</button>
+          </div>
+        </div>
+
+        <!-- Clavier virtuel -->
+        <div class="keyboard-container">
+          <div class="keyboard-shortcuts">
+            <button class="shortcut-btn" data-keys="ctrl+c">Ctrl+C</button>
+            <button class="shortcut-btn" data-keys="ctrl+v">Ctrl+V</button>
+            <button class="shortcut-btn" data-keys="ctrl+z">Ctrl+Z</button>
+            <button class="shortcut-btn" data-keys="ctrl+a">Ctrl+A</button>
+            <button class="shortcut-btn" data-keys="alt+tab">Alt+Tab</button>
+            <button class="shortcut-btn" data-keys="alt+f4">Alt+F4</button>
+            <button class="shortcut-btn" data-keys="ctrl+shift+escape">Gest. tâches</button>
+          </div>
+          <div class="keyboard-keys" id="keyboard-keys">
+            <!-- Généré dynamiquement par virtual-keyboard.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ VUE SOUNDBOARD / AUDIO ═══════ -->
       <section id="view-soundboard" class="view">
         <div class="soundboard-container">
           <div class="media-player-pro">
@@ -193,17 +258,10 @@
               </div>
             </div>
           </div>
-
-          <div class="sound-pads">
-            <button class="sound-pad" data-sound="airhorn"><i data-lucide="megaphone"></i> Airhorn</button>
-            <button class="sound-pad" data-sound="meme"><i data-lucide="smile"></i> Meme</button>
-            <button class="sound-pad" data-sound="clap"><i data-lucide="clapping-hands"></i> Clap</button>
-            <button class="sound-pad" data-sound="fail"><i data-lucide="thumbs-down"></i> Fail</button>
-          </div>
         </div>
       </section>
 
-      <!-- VUE MONITOR -->
+      <!-- ═══════ VUE MONITOR ═══════ -->
       <section id="view-monitor" class="view">
         <div class="monitor-container">
           <div class="gauge-card">
@@ -230,10 +288,22 @@
               </div>
             </div>
           </div>
+          <div class="gauge-card">
+            <div class="gauge-ring">
+              <svg viewBox="0 0 100 100">
+                <circle class="gauge-bg" cx="50" cy="50" r="45"></circle>
+                <circle class="gauge-fill" id="fill-gpu" cx="50" cy="50" r="45"></circle>
+              </svg>
+              <div class="gauge-data">
+                <span class="gauge-label">NET</span>
+                <span class="gauge-value" id="val-net-down">--</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- VUE SETTINGS -->
+      <!-- ═══════ VUE SETTINGS ═══════ -->
       <section id="view-settings" class="view">
         <div class="settings-container">
           <div class="settings-group">
@@ -262,15 +332,23 @@
         </div>
       </section>
 
-      <!-- NAVIGATION BASSE -->
+      <!-- ═══════ NAVIGATION BASSE ═══════ -->
       <nav id="bottom-nav">
         <button class="nav-btn active" data-view="dashboard">
           <i data-lucide="layout-dashboard" class="nav-icon"></i>
           <span class="nav-label">Home</span>
         </button>
+        <button class="nav-btn" data-view="screen">
+          <i data-lucide="monitor" class="nav-icon"></i>
+          <span class="nav-label">Écran</span>
+        </button>
+        <button class="nav-btn" data-view="mouse-keyboard">
+          <i data-lucide="mouse-pointer-2" class="nav-icon"></i>
+          <span class="nav-label">Contrôle</span>
+        </button>
         <button class="nav-btn" data-view="soundboard">
           <i data-lucide="music" class="nav-icon"></i>
-          <span class="nav-label">Sons</span>
+          <span class="nav-label">Audio</span>
         </button>
         <button class="nav-btn" data-view="monitor">
           <i data-lucide="activity" class="nav-icon"></i>
@@ -292,6 +370,8 @@
   <script src="js/app.js"></script>
   <script src="js/system-dashboard.js"></script>
   <script src="js/spectrum.js"></script>
+  <script src="js/screen-viewer.js"></script>
+  <script src="js/virtual-keyboard.js"></script>
   <script src="js/premium.js"></script>
   <script>lucide.createIcons();</script>
 </body>

@@ -207,3 +207,73 @@
 [INFO] 2026-05-11T20:29:06.947Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
 [INFO] 2026-05-11T20:29:06.951Z [ConnectionManager] Client authentifié
 [INFO] 2026-05-11T20:29:07.161Z [AudioMeter] Démarrage peak meter
+[INFO] 2026-05-11T20:29:24.844Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:29:24.845Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-11T20:29:24.852Z [AudioMeter] Peak meter terminé {"code":null}
+[INFO] 2026-05-11T20:29:38.561Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-11T20:29:39.316Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-11T20:29:39.343Z [ConnectionManager] Manager prêt {"pin":"9979"}
+[INFO] 2026-05-11T20:29:39.357Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-11T20:29:45.056Z [Server] Mise à jour disponible {"version":"1.14.48","url":"https://github.com/anomalyco/opencode/releases/tag/v1.14.48","publishedAt":"2026-05-11T02:07:50Z"}
+[INFO] 2026-05-11T20:29:47.599Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:29:47.604Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:29:56.114Z [AudioMeter] Démarrage peak meter
+[INFO] 2026-05-11T20:31:47.118Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:31:47.119Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-11T20:31:47.132Z [AudioMeter] Peak meter terminé {"code":null}
+[INFO] 2026-05-11T20:31:49.014Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-11T20:31:51.345Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-11T20:31:51.372Z [ConnectionManager] Manager prêt {"pin":"4184"}
+[INFO] 2026-05-11T20:31:51.386Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-11T20:31:57.099Z [Server] Mise à jour disponible {"version":"1.14.48","url":"https://github.com/anomalyco/opencode/releases/tag/v1.14.48","publishedAt":"2026-05-11T02:07:50Z"}
+[INFO] 2026-05-11T20:32:02.258Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:32:02.262Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:32:09.045Z [AudioMeter] Démarrage peak meter
+[INFO] 2026-05-11T20:34:08.181Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[WARN] 2026-05-11T20:34:08.184Z [ConnectionManager] Échec authentification {"pinTried":"9614"}
+[INFO] 2026-05-11T20:34:08.187Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:34:31.078Z [ScreenCapture] Démarrage FFmpeg {"fps":25,"width":1920,"height":1080,"quality":3}
+[INFO] 2026-05-11T20:34:36.382Z [ScreenCapture] Capture arrêtée (volontaire)
+[INFO] 2026-05-11T20:34:36.414Z [ScreenCapture] FFmpeg terminé {"code":null}
+[INFO] 2026-05-11T20:34:37.224Z [ScreenCapture] Démarrage FFmpeg {"fps":25,"width":1920,"height":1080,"quality":3}
+[INFO] 2026-05-11T20:34:55.154Z [ScreenCapture] Capture arrêtée (volontaire)
+[INFO] 2026-05-11T20:34:55.197Z [ScreenCapture] FFmpeg terminé {"code":null}
+[INFO] 2026-05-11T20:36:04.501Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[WARN] 2026-05-11T20:36:04.502Z [ConnectionManager] Échec authentification {"pinTried":"0000"}
+[INFO] 2026-05-11T20:36:04.503Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:36:18.515Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[WARN] 2026-05-11T20:36:18.516Z [ConnectionManager] Échec authentification {"pinTried":"1234"}
+[INFO] 2026-05-11T20:36:18.518Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:38:20.506Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:38:20.507Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-11T20:38:20.520Z [AudioMeter] Peak meter terminé {"code":null}
+[INFO] 2026-05-11T20:38:26.255Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:38:26.258Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:38:26.452Z [AudioMeter] Démarrage peak meter
+[INFO] 2026-05-11T20:38:30.716Z [ScreenCapture] Démarrage FFmpeg {"fps":20,"width":1280,"height":720,"quality":5}
+[INFO] 2026-05-11T20:38:31.757Z [ScreenCapture] Capture arrêtée (volontaire)
+[INFO] 2026-05-11T20:38:31.767Z [ScreenCapture] FFmpeg terminé {"code":null}
+[INFO] 2026-05-11T20:39:14.539Z [ScreenCapture] Démarrage FFmpeg {"fps":20,"width":1280,"height":720,"quality":5}
+[INFO] 2026-05-11T20:39:15.343Z [ScreenCapture] Capture arrêtée (volontaire)
+[INFO] 2026-05-11T20:39:15.353Z [ScreenCapture] FFmpeg terminé {"code":null}
+[INFO] 2026-05-11T20:39:18.116Z [ScreenCapture] Démarrage FFmpeg {"fps":20,"width":1280,"height":720,"quality":5}
+[INFO] 2026-05-11T20:39:19.314Z [ScreenCapture] Capture arrêtée (volontaire)
+[INFO] 2026-05-11T20:39:19.326Z [ScreenCapture] FFmpeg terminé {"code":null}
+[INFO] 2026-05-11T20:39:20.516Z [ScreenCapture] Démarrage FFmpeg {"fps":20,"width":1280,"height":720,"quality":5}
+[INFO] 2026-05-11T20:39:21.121Z [ScreenCapture] Capture arrêtée (volontaire)
+[INFO] 2026-05-11T20:39:21.140Z [ScreenCapture] FFmpeg terminé {"code":null}
+[INFO] 2026-05-11T20:39:21.795Z [ScreenCapture] Démarrage FFmpeg {"fps":20,"width":1280,"height":720,"quality":5}
+[INFO] 2026-05-11T20:39:28.498Z [ScreenCapture] Capture arrêtée (volontaire)
+[INFO] 2026-05-11T20:39:28.515Z [ScreenCapture] FFmpeg terminé {"code":null}
+[INFO] 2026-05-11T20:39:29.813Z [ScreenCapture] Démarrage FFmpeg {"fps":20,"width":1280,"height":720,"quality":5}
+[INFO] 2026-05-11T20:39:36.601Z [ScreenCapture] Capture arrêtée (volontaire)
+[INFO] 2026-05-11T20:39:36.616Z [ScreenCapture] FFmpeg terminé {"code":null}
+[INFO] 2026-05-11T20:39:37.495Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:39:37.495Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-11T20:39:37.502Z [AudioMeter] Peak meter terminé {"code":null}
+[INFO] 2026-05-11T20:39:43.203Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:39:43.215Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:39:43.421Z [AudioMeter] Démarrage peak meter
+[INFO] 2026-05-11T20:39:48.162Z [ScreenCapture] Démarrage FFmpeg {"fps":25,"width":1920,"height":1080,"quality":3}
+[INFO] 2026-05-11T20:39:49.208Z [ScreenCapture] Capture arrêtée (volontaire)
+[INFO] 2026-05-11T20:39:49.230Z [ScreenCapture] FFmpeg terminé {"code":null}

@@ -6,7 +6,7 @@
 class ScreenViewer {
   constructor() {
     this.canvas = document.getElementById('screen-canvas');
-    this.ctx = this.canvas.getContext('2d');
+    this.ctx = this.canvas ? this.canvas.getContext('2d') : null;
     this.overlay = document.getElementById('screen-overlay');
     this.toggleBtn = document.getElementById('btn-stream-toggle');
     this.qualitySelect = document.getElementById('select-quality');
@@ -24,13 +24,15 @@ class ScreenViewer {
     const conn = window.deckpadConnection;
 
     // Toggle stream
-    this.toggleBtn.addEventListener('click', () => {
-      if (this.streaming) {
-        this.stopStream();
-      } else {
-        this.startStream();
-      }
-    });
+    if (this.toggleBtn) {
+      this.toggleBtn.addEventListener('click', () => {
+        if (this.streaming) {
+          this.stopStream();
+        } else {
+          this.startStream();
+        }
+      });
+    }
 
     // Recevoir les frames
     conn.onBinary((data) => {
@@ -40,9 +42,11 @@ class ScreenViewer {
       const url = URL.createObjectURL(blob);
 
       this.img.onload = () => {
-        this.canvas.width = this.img.naturalWidth;
-        this.canvas.height = this.img.naturalHeight;
-        this.ctx.drawImage(this.img, 0, 0);
+        if (this.canvas) {
+          this.canvas.width = this.img.naturalWidth;
+          this.canvas.height = this.img.naturalHeight;
+          this.ctx.drawImage(this.img, 0, 0);
+        }
         URL.revokeObjectURL(url);
       };
       this.img.src = url;
@@ -55,16 +59,18 @@ class ScreenViewer {
     });
 
     // Touch events sur le canvas pour contrôler la souris
-    this.canvas.addEventListener('touchstart', (e) => this._onTouchStart(e), { passive: false });
-    this.canvas.addEventListener('touchmove', (e) => this._onTouchMove(e), { passive: false });
-    this.canvas.addEventListener('touchend', (e) => this._onTouchEnd(e), { passive: false });
+    if (this.canvas) {
+      this.canvas.addEventListener('touchstart', (e) => this._onTouchStart(e), { passive: false });
+      this.canvas.addEventListener('touchmove', (e) => this._onTouchMove(e), { passive: false });
+      this.canvas.addEventListener('touchend', (e) => this._onTouchEnd(e), { passive: false });
+    }
   }
 
   startStream() {
     const conn = window.deckpadConnection;
     if (!conn.isReady()) return;
 
-    const quality = this.qualitySelect.value;
+    const quality = this.qualitySelect ? this.qualitySelect.value : 'medium';
     const settings = {
       low: { width: 854, height: 480, fps: 15, quality: 8 },
       medium: { width: 1280, height: 720, fps: 20, quality: 5 },
