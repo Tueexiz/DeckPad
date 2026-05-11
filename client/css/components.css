@@ -75,25 +75,26 @@
   width: 100%;
   padding: 14px;
   background: var(--white-pure);
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  border: 1px solid var(--blue-700);
   border-radius: var(--radius-lg);
-  color: var(--red-500);
+  color: var(--blue-800);
   font-family: var(--font-display);
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
   transition: all var(--transition-fast);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-soft);
   margin-top: var(--space-md);
 }
 
 .btn-danger:hover {
-  background: rgba(239, 68, 68, 0.05);
+  background: var(--blue-50);
+  border-color: var(--blue-800);
   transform: scale(1.02);
 }
 
 .btn-danger:active {
-  background: rgba(239, 68, 68, 0.1);
+  background: var(--blue-100);
   transform: scale(0.97);
 }
 
@@ -224,9 +225,10 @@
   transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.stat-bar-fill.ram { background: linear-gradient(90deg, #A78BFA, #7C3AED); }
-.stat-bar-fill.gpu { background: linear-gradient(90deg, #34D399, #059669); }
-.stat-bar-fill.disk { background: linear-gradient(90deg, #FBBF24, #D97706); }
+/* Tous les bars en bleu — variation de teinte uniquement (charte stricte) */
+.stat-bar-fill.ram  { background: linear-gradient(90deg, var(--blue-300), var(--blue-500)); }
+.stat-bar-fill.gpu  { background: linear-gradient(90deg, var(--blue-400), var(--blue-700)); }
+.stat-bar-fill.disk { background: linear-gradient(90deg, var(--blue-200), var(--blue-600)); }
 
 /* Quick Actions */
 .quick-actions {
@@ -282,12 +284,12 @@
 }
 
 .action-btn.danger:hover {
-  border-color: rgba(239, 68, 68, 0.3);
-  color: var(--red-500);
+  border-color: var(--blue-700);
+  color: var(--blue-800);
 }
 
 .action-btn.danger:hover .action-icon {
-  color: var(--red-500);
+  color: var(--blue-800);
 }
 
 #action-boost {
@@ -441,15 +443,15 @@
   align-items: center;
   justify-content: center;
   background: var(--white-pure);
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  border: 1px solid var(--blue-200);
   border-radius: 50%;
-  color: var(--red-500);
+  color: var(--blue-700);
   cursor: pointer;
   opacity: 0;
   transform: scale(0.8);
   transition: all var(--transition-fast);
   z-index: 2;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-soft);
 }
 
 .app-tile-delete svg {
@@ -463,14 +465,9 @@
 }
 
 .app-tile-delete:hover {
-  background: var(--red-500);
+  background: var(--blue-700);
+  border-color: var(--blue-800);
   color: white;
-}/* ═══════════════════════════════════════
-   SCREEN VIEWER
-   ═══════════════════════════════════════ */
-
-#view-screen {
-  background: var(--white-ice);
 }
 
 .screen-container {
@@ -924,17 +921,18 @@
    MODAL
    ═══════════════════════════════════════ */
 
+/* Modale — DNA glass 3D unifié (charte Liquid Glass & Electric Blue) */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(239, 246, 255, 0.55);
+  backdrop-filter: var(--glass-blur-light);
+  -webkit-backdrop-filter: var(--glass-blur-light);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  animation: fade-in 0.2s ease;
+  animation: fade-in 0.22s ease;
 }
 
 .modal-overlay.hidden {
@@ -942,14 +940,33 @@
 }
 
 .modal-content {
-  background: var(--white-pure);
-  border: 1px solid var(--white-silver);
-  border-radius: var(--radius-2xl);
+  /* Surface verre premium */
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-3xl);
   padding: var(--space-2xl);
   width: 400px;
   max-width: 90%;
-  box-shadow: var(--shadow-2xl);
-  animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  /* 2 layers max : profondeur + halo bleu intérieur */
+  box-shadow: var(--shadow-float), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  animation: slide-up 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Halo électrique en haut de la modale (signature DeckPad) */
+.modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--blue-400) 50%,
+    transparent 100%);
+  opacity: 0.7;
 }
 
 .modal-content h3 {
@@ -1019,19 +1036,20 @@
   backdrop-filter: blur(8px);
 }
 
+/* Toasts — charte stricte blue, différenciation par profondeur */
 .toast.info {
-  background: rgba(59, 130, 246, 0.9);
+  background: rgba(59, 130, 246, 0.92);
   border: 1px solid var(--blue-400);
 }
 
 .toast.success {
-  background: rgba(16, 185, 129, 0.9);
-  border: 1px solid var(--green-400);
+  background: rgba(37, 99, 235, 0.92);
+  border: 1px solid var(--blue-300);
 }
 
 .toast.error {
-  background: rgba(239, 68, 68, 0.9);
-  border: 1px solid var(--red-400);
+  background: rgba(30, 58, 138, 0.95);
+  border: 1px solid var(--blue-700);
 }
 
 /* Modal texte */
@@ -1073,7 +1091,8 @@
   font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 800;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05), inset 0 2px 4px rgba(255,255,255,1);
+  /* 2 layers : ombre soft + highlight intérieur top */
+  box-shadow: var(--shadow-soft), inset 0 1px 1px rgba(255, 255, 255, 0.95);
   transition: all var(--transition-fast);
 }
 
@@ -1082,7 +1101,8 @@
   background: var(--blue-50);
   border-color: var(--blue-300);
   color: var(--blue-600);
-  box-shadow: 0 0 0 rgba(0,0,0,0), inset 0 4px 8px rgba(0,0,0,0.1);
+  /* Press : single inset enfoncé */
+  box-shadow: inset 0 4px 8px rgba(37, 99, 235, 0.15);
 }
 
 .center-buttons {
@@ -1202,20 +1222,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1), inset 0 -2px 4px rgba(0,0,0,0.1);
+  /* 2 layers max : ombre projetée bleutée + highlight haut */
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.4);
   color: white;
   transition: all var(--transition-fast);
 }
 
 .pad-btn:active, .pad-btn.active {
   transform: scale(0.9) translateY(2px);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 2px 4px rgba(0,0,0,0.2);
+  /* Press : pas de duplicat, 2 layers max */
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.2), inset 0 2px 4px rgba(30, 64, 175, 0.25);
 }
 
-.y-btn { top: 10px; left: 56px; background: #FBBF24; }
-.x-btn { top: 56px; left: 10px; background: #3B82F6; }
-.b-btn { top: 56px; right: 10px; background: #EF4444; }
-.a-btn { bottom: 10px; left: 56px; background: #10B981; }
+/* Boutons gamepad ABXY — palette blue stricte, différenciation par tonalité */
+.y-btn { top: 10px;    left: 56px;  background: linear-gradient(135deg, var(--blue-300), var(--blue-500)); }
+.x-btn { top: 56px;    left: 10px;  background: linear-gradient(135deg, var(--blue-500), var(--blue-700)); }
+.b-btn { top: 56px;    right: 10px; background: linear-gradient(135deg, var(--blue-600), var(--blue-800)); }
+.a-btn { bottom: 10px; left: 56px;  background: linear-gradient(135deg, var(--blue-400), var(--blue-600)); }
 
 .pad-left-side .joystick-zone { left: -80px; }
 .pad-right-side .joystick-zone { right: -80px; }
@@ -1405,10 +1428,11 @@
   transition: stroke-dashoffset 0.5s ease-out;
 }
 
-#gauge-cpu .gauge-fill { stroke: #3B82F6; }
-#gauge-gpu .gauge-fill { stroke: #10B981; }
-#gauge-ram .gauge-fill { stroke: #8B5CF6; }
-#gauge-net .gauge-fill { stroke: #F59E0B; }
+/* Gauges — palette blue stricte */
+#gauge-cpu .gauge-fill { stroke: var(--blue-500); }
+#gauge-gpu .gauge-fill { stroke: var(--blue-400); }
+#gauge-ram .gauge-fill { stroke: var(--blue-700); }
+#gauge-net .gauge-fill { stroke: var(--blue-600); }
 
 .gauge-data {
   position: absolute;

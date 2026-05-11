@@ -39,11 +39,13 @@ class SystemDashboard {
       this.renderApps();
     });
     conn.on('media_info', (msg) => this.updateMedia(msg.media));
-    
-    // Sync Volume Info
+
+    // Sync Volume Info — ignoré tant que l'utilisateur drag le slider (anti-rebond)
     conn.on('volume_info', (msg) => {
       const masterSlider = document.getElementById('mixer-master');
-      if (masterSlider) masterSlider.value = msg.volume;
+      if (masterSlider && !masterSlider.dataset.dragging) {
+        masterSlider.value = msg.volume;
+      }
     });
 
     // Delegated events for better reliability
@@ -86,12 +88,61 @@ class SystemDashboard {
       btn.addEventListener('touchcancel', stop);
     });
 
-    // Mixer sliders
+    // Mixer sliders — throttle leading + trailing 50ms (anti-flood WebSocket)
     document.querySelectorAll('.mixer-slider').forEach(slider => {
+      const device = slider.dataset.app;
+      if (!device) return;
+
+      let lastSent = 0;
+      let trailingTimer = null;
+      let pendingValue = null;
+      const THROTTLE_MS = 50;
+
+      const flush = () => {
+        if (pendingValue == null) return;
+        lastSent = performance.now();
+        conn.send({ type: 'set_volume', device, value: pendingValue });
+        pendingValue = null;
+        trailingTimer = null;
+      };
+
       slider.addEventListener('input', (e) => {
-        const device = slider.dataset.app;
-        if (device) conn.send({ type: 'set_volume', device, value: e.target.value });
+        const value = e.target.value;
+        const now = performance.now();
+        const elapsed = now - lastSent;
+
+        if (elapsed >= THROTTLE_MS) {
+          // Leading edge : envoi immédiat
+          lastSent = now;
+          conn.send({ type: 'set_volume', device, value });
+          pendingValue = null;
+          if (trailingTimer) {
+            clearTimeout(trailingTimer);
+            trailingTimer = null;
+          }
+        } else {
+          // Trailing : on accumule, dernier coup envoyé à la fin
+          pendingValue = value;
+          if (!trailingTimer) {
+            trailingTimer = setTimeout(flush, THROTTLE_MS - elapsed);
+          }
+        }
       });
+
+      // Drag flag : empêche le serveur d'écraser le slider pendant qu'on l'utilise
+      const setDragging = () => { slider.dataset.dragging = '1'; };
+      const clearDragging = () => {
+        delete slider.dataset.dragging;
+        // S'assure que la dernière valeur est bien partie
+        if (pendingValue != null) flush();
+      };
+
+      slider.addEventListener('pointerdown',   setDragging);
+      slider.addEventListener('pointerup',     clearDragging);
+      slider.addEventListener('pointercancel', clearDragging);
+      slider.addEventListener('touchstart',    setDragging, { passive: true });
+      slider.addEventListener('touchend',      clearDragging);
+      slider.addEventListener('touchcancel',   clearDragging);
     });
   }
 

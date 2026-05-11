@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "builtAt": "2026-05-11T19:54:46.121Z",
+  "files": {
+    "css": "deckpad.808517b0.min.css",
+    "js": "deckpad.5ccbdff7.min.js"
+  },
+  "sizes": {
+    "cssRaw": 69466,
+    "cssMin": 50126,
+    "jsRaw": 53552,
+    "jsMin": 34676
+  }
+}

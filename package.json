@@ -5,7 +5,9 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "dev": "node --watch server/index.js"
+    "dev": "node --watch server/index.js",
+    "build": "node scripts/build.js",
+    "test:e2e": "node scripts/test-e2e.js"
   },
   "dependencies": {
     "@coooookies/windows-smtc-monitor": "^1.0.12",

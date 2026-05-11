@@ -128,15 +128,52 @@ class DeckPadApp {
       }
     });
 
-    // Déconnexion depuis le statut
-    this.conn.onStatusChange = (status) => {
-      if (status === 'disconnected' && this.conn.authenticated === false) {
+    // Statuts WebSocket : connected / reconnecting / offline / disconnected
+    this.conn.onStatusChange = (status, payload) => {
+      this._updateStatusPill(status, payload);
+
+      if (status === 'disconnected' && !this.conn.authenticated) {
         document.getElementById('main-app').classList.add('hidden');
         document.getElementById('view-connect').classList.remove('hidden');
         document.getElementById('view-connect').classList.add('active');
         if (statusEl) statusEl.textContent = 'Déconnecté';
       }
+
+      if (status === 'connected') {
+        if (statusEl) statusEl.textContent = 'Prêt';
+      }
+
+      if (status === 'reconnecting') {
+        const attempt = payload?.attempt ?? 1;
+        this.showToast(`Reconnexion en cours… (${attempt})`, 'info');
+      }
+
+      if (status === 'offline') {
+        this.showToast('Hors ligne — Reconnecte-toi manuellement', 'error');
+      }
     };
+  }
+
+  /**
+   * Mise à jour visuelle de la status pill (header)
+   */
+  _updateStatusPill(status, payload) {
+    const pill = document.getElementById('status-pill');
+    if (!pill) return;
+
+    const labels = {
+      connected:    'Connected',
+      reconnecting: payload?.attempt ? `Reconnecting · ${payload.attempt}` : 'Reconnecting',
+      offline:      'Offline',
+      disconnected: 'Offline',
+    };
+
+    pill.classList.remove('connected', 'reconnecting', 'offline');
+    const cls = (status === 'disconnected') ? 'offline' : status;
+    pill.classList.add(cls);
+
+    const label = pill.querySelector('.status-pill-label');
+    if (label) label.textContent = labels[status] || '—';
   }
 
   _showConnectError(message) {

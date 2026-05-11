@@ -1,37 +1,33 @@
 /**
- * DeckPad - Module de capture d'écran
- * Utilise FFmpeg gdigrab pour capturer le bureau Windows en MJPEG
+ * DeckPad — Module de capture d'écran
+ * FFmpeg gdigrab → MJPEG, avec watchdog auto-restart si crash
  */
 
 const { spawn, execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
+const EventEmitter = require('events');
+const log = require('./logger').create('ScreenCapture');
 
-/**
- * Cherche FFmpeg dans les emplacements connus
- */
+/* ─── Détection FFmpeg ─── */
 function findFFmpeg() {
-  // 1. Vérifier si ffmpeg est dans le PATH
   try {
     const result = execSync('where ffmpeg', { encoding: 'utf-8', timeout: 5000 }).trim();
     if (result) return result.split('\n')[0].trim();
-  } catch {}
+  } catch (_) {}
 
-  // 2. Chercher dans WinGet packages
   const wingetBase = path.join(os.homedir(), 'AppData', 'Local', 'Microsoft', 'WinGet', 'Packages');
   if (fs.existsSync(wingetBase)) {
     try {
       const dirs = fs.readdirSync(wingetBase).filter(d => d.includes('FFmpeg'));
       for (const dir of dirs) {
-        const binDir = path.join(wingetBase, dir);
-        const found = findFileRecursive(binDir, 'ffmpeg.exe', 3);
+        const found = findFileRecursive(path.join(wingetBase, dir), 'ffmpeg.exe', 3);
         if (found) return found;
       }
-    } catch {}
+    } catch (_) {}
   }
 
-  // 3. Chemins courants
   const commonPaths = [
     'C:\\ffmpeg\\bin\\ffmpeg.exe',
     'C:\\Program Files\\ffmpeg\\bin\\ffmpeg.exe',
@@ -40,15 +36,13 @@ function findFFmpeg() {
   for (const p of commonPaths) {
     if (fs.existsSync(p)) return p;
   }
-
-  return 'ffmpeg'; // Fallback: espérer qu'il est dans le PATH
+  return 'ffmpeg';
 }
 
 function findFileRecursive(dir, filename, maxDepth) {
   if (maxDepth <= 0) return null;
   try {
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-    for (const entry of entries) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       const fullPath = path.join(dir, entry.name);
       if (entry.isFile() && entry.name === filename) return fullPath;
       if (entry.isDirectory()) {
@@ -56,40 +50,72 @@ function findFileRecursive(dir, filename, maxDepth) {
         if (found) return found;
       }
     }
-  } catch {}
+  } catch (_) {}
   return null;
 }
 
 const FFMPEG_PATH = findFFmpeg();
-console.log(`[ScreenCapture] FFmpeg trouvé: ${FFMPEG_PATH}`);
+const FFMPEG_AVAILABLE = FFMPEG_PATH !== 'ffmpeg' || (() => {
+  try { execSync('ffmpeg -version', { timeout: 2000, stdio: 'ignore' }); return true; }
+  catch (_) { return false; }
+})();
 
-class ScreenCapture {
+log.info('FFmpeg detection', { path: FFMPEG_PATH, available: FFMPEG_AVAILABLE });
+
+/* ─── ScreenCapture avec Watchdog ─── */
+class ScreenCapture extends EventEmitter {
   constructor() {
+    super();
     this.process = null;
     this.running = false;
+    this.shouldRun = false;          // Intention utilisateur (pour watchdog)
     this.frameCallback = null;
     this.frameBuffer = Buffer.alloc(0);
-    this.options = {
-      fps: 20,
-      quality: 5,
-      width: 1280,
-      height: 720
-    };
+    this.options = { fps: 20, quality: 5, width: 1280, height: 720 };
+
+    // Watchdog state
+    this.crashCount = 0;
+    this.lastCrashAt = 0;
+    this.maxCrashesPerMinute = 5;
+    this.restartTimer = null;
+
+    // Health
+    this.lastFrameAt = 0;
+    this.framesSent = 0;
   }
 
   /**
-   * Démarre la capture d'écran
+   * Etat exposé pour /health
    */
+  getHealth() {
+    return {
+      available: FFMPEG_AVAILABLE,
+      ffmpegPath: FFMPEG_PATH,
+      running: this.running,
+      shouldRun: this.shouldRun,
+      crashCount: this.crashCount,
+      framesSent: this.framesSent,
+      lastFrameAt: this.lastFrameAt ? new Date(this.lastFrameAt).toISOString() : null,
+      msSinceLastFrame: this.lastFrameAt ? Date.now() - this.lastFrameAt : null,
+    };
+  }
+
   start(options = {}) {
-    if (this.running) {
-      this.stop();
+    if (!FFMPEG_AVAILABLE) {
+      log.warn('FFmpeg indisponible — capture désactivée');
+      this.emit('unavailable', { reason: 'ffmpeg_missing' });
+      return false;
     }
 
-    Object.assign(this.options, options);
-    const { fps, quality, width, height } = this.options;
+    if (this.running) this._killProcess();
 
-    // L'utilisateur veut l'écran de gauche (X=0, Y=0)
-    // On capture le desktop en précisant l'offset
+    Object.assign(this.options, options);
+    this.shouldRun = true;
+    return this._spawn();
+  }
+
+  _spawn() {
+    const { fps, quality, width, height } = this.options;
     const args = [
       '-f', 'gdigrab',
       '-framerate', String(fps),
@@ -105,22 +131,18 @@ class ScreenCapture {
       'pipe:1'
     ];
 
-    console.log(`[ScreenCapture] Démarrage FFmpeg: ${fps}fps, ${width}x${height}, q=${quality}`);
+    log.info('Démarrage FFmpeg', { fps, width, height, quality });
 
     try {
-      this.process = spawn(FFMPEG_PATH, args, {
-        stdio: ['pipe', 'pipe', 'pipe']
-      });
+      this.process = spawn(FFMPEG_PATH, args, { stdio: ['pipe', 'pipe', 'pipe'] });
     } catch (err) {
-      console.error('[ScreenCapture] Erreur lancement FFmpeg:', err.message);
-      console.error('[ScreenCapture] Vérifie que FFmpeg est installé et dans le PATH');
+      log.error('Impossible de lancer FFmpeg', err);
       return false;
     }
 
     this.running = true;
     this.frameBuffer = Buffer.alloc(0);
 
-    // Parser le flux MJPEG pour extraire les frames individuelles
     this.process.stdout.on('data', (chunk) => {
       this.frameBuffer = Buffer.concat([this.frameBuffer, chunk]);
       this._extractFrames();
@@ -129,95 +151,115 @@ class ScreenCapture {
     this.process.stderr.on('data', (data) => {
       const msg = data.toString().trim();
       if (msg && !msg.startsWith('frame=') && !msg.includes('speed=')) {
-        // Ne log que les erreurs, pas les stats de progression
         if (msg.includes('Error') || msg.includes('error') || msg.includes('fatal')) {
-          console.error('[ScreenCapture] FFmpeg:', msg);
+          log.warn('FFmpeg stderr', { msg });
         }
       }
     });
 
     this.process.on('close', (code) => {
-      console.log(`[ScreenCapture] FFmpeg terminé (code: ${code})`);
       this.running = false;
+      this.process = null;
+      log.info('FFmpeg terminé', { code });
+
+      // Watchdog : si on devait tourner et qu'on a planté, on redémarre
+      if (this.shouldRun && code !== 0 && code !== null) {
+        this._scheduleRestart();
+      }
     });
 
     this.process.on('error', (err) => {
-      console.error('[ScreenCapture] Erreur FFmpeg:', err.message);
+      log.error('Erreur process FFmpeg', err);
       this.running = false;
     });
 
     return true;
   }
 
-  /**
-   * Arrête la capture
-   */
-  stop() {
+  _scheduleRestart() {
+    const now = Date.now();
+    // Reset compteur si > 60s depuis le dernier crash
+    if (now - this.lastCrashAt > 60000) this.crashCount = 0;
+
+    this.crashCount++;
+    this.lastCrashAt = now;
+
+    if (this.crashCount > this.maxCrashesPerMinute) {
+      log.error('Trop de crashes FFmpeg — abandon watchdog', {
+        crashes: this.crashCount,
+        windowMs: 60000,
+      });
+      this.shouldRun = false;
+      this.emit('watchdog_failed', { crashes: this.crashCount });
+      return;
+    }
+
+    // Backoff exponentiel : 500ms, 1s, 2s, 4s, 8s
+    const delay = Math.min(8000, 500 * Math.pow(2, this.crashCount - 1));
+    log.warn('Watchdog FFmpeg — restart programmé', { crash: this.crashCount, delay });
+
+    this.emit('watchdog_restart', { attempt: this.crashCount, delay });
+
+    if (this.restartTimer) clearTimeout(this.restartTimer);
+    this.restartTimer = setTimeout(() => {
+      if (this.shouldRun) this._spawn();
+    }, delay);
+  }
+
+  _killProcess() {
     if (this.process) {
-      this.process.kill('SIGTERM');
+      try { this.process.kill('SIGTERM'); } catch (_) {}
       this.process = null;
     }
     this.running = false;
-    this.frameBuffer = Buffer.alloc(0);
-    console.log('[ScreenCapture] Capture arrêtée');
   }
 
-  /**
-   * Enregistre un callback pour chaque frame
-   */
+  stop() {
+    this.shouldRun = false;
+    if (this.restartTimer) {
+      clearTimeout(this.restartTimer);
+      this.restartTimer = null;
+    }
+    this._killProcess();
+    this.frameBuffer = Buffer.alloc(0);
+    log.info('Capture arrêtée (volontaire)');
+  }
+
   onFrame(callback) {
     this.frameCallback = callback;
   }
 
-  /**
-   * Vérifie si la capture est en cours
-   */
   isRunning() {
     return this.running;
   }
 
-  /**
-   * Extrait les frames JPEG du buffer
-   * JPEG commence par 0xFFD8 (SOI) et finit par 0xFFD9 (EOI)
-   */
   _extractFrames() {
-    const SOI = Buffer.from([0xFF, 0xD8]); // Start Of Image
-    const EOI = Buffer.from([0xFF, 0xD9]); // End Of Image
+    const SOI = Buffer.from([0xFF, 0xD8]);
+    const EOI = Buffer.from([0xFF, 0xD9]);
 
     while (true) {
-      // Chercher le début d'une frame
       const startIdx = this.frameBuffer.indexOf(SOI);
       if (startIdx === -1) {
-        // Pas de SOI trouvé, vider le buffer
         this.frameBuffer = Buffer.alloc(0);
         break;
       }
 
-      // Chercher la fin de la frame (après le SOI)
       const endIdx = this.frameBuffer.indexOf(EOI, startIdx + 2);
       if (endIdx === -1) {
-        // Frame incomplète, garder le buffer à partir du SOI
-        if (startIdx > 0) {
-          this.frameBuffer = this.frameBuffer.subarray(startIdx);
-        }
+        if (startIdx > 0) this.frameBuffer = this.frameBuffer.subarray(startIdx);
         break;
       }
 
-      // Extraire la frame complète (inclure les 2 bytes de EOI)
       const frame = this.frameBuffer.subarray(startIdx, endIdx + 2);
+      this.lastFrameAt = Date.now();
+      this.framesSent++;
 
-      // Émettre la frame
-      if (this.frameCallback) {
-        this.frameCallback(frame);
-      }
-
-      // Avancer le buffer après cette frame
+      if (this.frameCallback) this.frameCallback(frame);
       this.frameBuffer = this.frameBuffer.subarray(endIdx + 2);
     }
 
-    // Limiter la taille du buffer pour éviter les fuites mémoire
     if (this.frameBuffer.length > 5 * 1024 * 1024) {
-      console.warn('[ScreenCapture] Buffer trop grand, reset');
+      log.warn('Buffer trop grand — reset');
       this.frameBuffer = Buffer.alloc(0);
     }
   }

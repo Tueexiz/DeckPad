@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#1e40af"/>
+    </linearGradient>
+    <linearGradient id="cube" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+  <rect width="192" height="192" rx="42" fill="url(#bg)"/>
+  <g transform="translate(38 44)">
+    <!-- 3x3 grid de cubes glass -->
+    <g fill="url(#cube)" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.18))">
+      <rect x="0"  y="0"  width="32" height="32" rx="6"/>
+      <rect x="42" y="0"  width="32" height="32" rx="6"/>
+      <rect x="84" y="0"  width="32" height="32" rx="6"/>
+      <rect x="0"  y="42" width="32" height="32" rx="6"/>
+      <rect x="42" y="42" width="32" height="32" rx="6" opacity="0.95"/>
+      <rect x="84" y="42" width="32" height="32" rx="6"/>
+      <rect x="0"  y="84" width="32" height="32" rx="6"/>
+      <rect x="42" y="84" width="32" height="32" rx="6"/>
+      <rect x="84" y="84" width="32" height="32" rx="6"/>
+    </g>
+    <!-- Highlight cube central -->
+    <rect x="42" y="42" width="32" height="32" rx="6" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.6"/>
+  </g>
+</svg>

@@ -103,9 +103,8 @@ html, body {
   backdrop-filter: blur(25px);
   border-radius: 35px;
   border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 
-    0 15px 40px rgba(37, 99, 235, 0.12),
-    0 5px 15px rgba(0, 0, 0, 0.05);
+  /* Allègement : 1 seul layer profond, le reste géré par le border + backdrop */
+  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.18);
   z-index: 2000;
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
