@@ -141,3 +141,16 @@
 [INFO] 2026-05-11T20:09:00.016Z [ConnectionManager] Client authentifié
 [INFO] 2026-05-11T20:09:00.181Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
 [INFO] 2026-05-11T20:09:00.192Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:12:14.888Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-11T20:12:15.705Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-11T20:12:15.721Z [ConnectionManager] Manager prêt {"pin":"9614"}
+[INFO] 2026-05-11T20:12:15.736Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-11T20:12:19.006Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[WARN] 2026-05-11T20:12:19.015Z [ConnectionManager] Échec authentification {"pinTried":"1953"}
+[INFO] 2026-05-11T20:12:19.023Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:12:19.023Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-11T20:12:21.389Z [Server] Mise à jour disponible {"version":"1.14.48","url":"https://github.com/anomalyco/opencode/releases/tag/v1.14.48","publishedAt":"2026-05-11T02:07:50Z"}
+[INFO] 2026-05-11T20:12:26.950Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:12:26.956Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:12:32.518Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:12:32.526Z [ConnectionManager] Client authentifié
