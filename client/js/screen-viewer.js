@@ -86,13 +86,13 @@ class ScreenViewer {
 
   _updateUI() {
     if (this.streaming) {
-      this.overlay.classList.add('streaming');
-      this.toggleBtn.textContent = '⏹️ Arrêter le stream';
-      this.touchInfo.classList.remove('hidden');
+      this.toggleBtn = document.getElementById('btn-stream-toggle');
+      if (this.toggleBtn) this.toggleBtn.textContent = '⏹️ Arrêter le stream';
+      if (this.touchInfo) this.touchInfo.classList.remove('hidden');
     } else {
-      this.overlay.classList.remove('streaming');
-      this.toggleBtn.textContent = '▶️ Démarrer le stream';
-      this.touchInfo.classList.add('hidden');
+      if (this.overlay) this.overlay.classList.remove('streaming');
+      if (this.toggleBtn) this.toggleBtn.textContent = '▶️ Démarrer le stream';
+      if (this.touchInfo) this.touchInfo.classList.add('hidden');
     }
   }
 

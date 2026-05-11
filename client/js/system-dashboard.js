@@ -161,7 +161,7 @@ class SystemDashboard {
       if (!fill || !val) return;
       const offset = 283 - (percent / 100) * 283;
       fill.style.strokeDashoffset = offset;
-      val.textContent = `${Math.round(percent)}%`;
+      if (val) val.textContent = `${Math.round(percent)}%`;
     };
 
     if (stats.cpu) {
@@ -184,6 +184,7 @@ class SystemDashboard {
 
   renderApps() {
     const grid = this.elements.appsGrid;
+    if (!grid) return;
     if (!grid) return;
     grid.innerHTML = '';
     
@@ -208,14 +209,16 @@ class SystemDashboard {
     const playKey = document.getElementById('action-play');
     if (playKey) {
       const face = playKey.querySelector('.key-face-top');
-      if (media.thumbnail) {
-        face.style.backgroundImage = `url(${media.thumbnail})`;
-        face.style.backgroundSize = 'cover';
-        face.style.color = 'white'; // White icon over cover
-        face.style.textShadow = '0 0 10px rgba(0,0,0,0.8)';
-      } else {
-        face.style.backgroundImage = 'none';
-        face.style.color = ''; // Back to theme blue
+      if (face) {
+        if (media.thumbnail) {
+          face.style.backgroundImage = `url(${media.thumbnail})`;
+          face.style.backgroundSize = 'cover';
+          face.style.color = 'white'; // White icon over cover
+          face.style.textShadow = '0 0 10px rgba(0,0,0,0.8)';
+        } else {
+          face.style.backgroundImage = 'none';
+          face.style.color = ''; // Back to theme blue
+        }
       }
     }
   }

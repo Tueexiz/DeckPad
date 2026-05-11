@@ -90,8 +90,10 @@ class DeckPadApp {
       }
 
       // UI loading
-      connectBtn.querySelector('.btn-text').textContent = 'Connexion...';
-      connectBtn.querySelector('.btn-loader').classList.remove('hidden');
+      const btnText = connectBtn.querySelector('.btn-text');
+      const btnLoader = connectBtn.querySelector('.btn-loader');
+      if (btnText) btnText.textContent = 'Connexion...';
+      if (btnLoader) btnLoader.classList.remove('hidden');
       connectBtn.disabled = true;
       if (errorEl) errorEl.classList.add('hidden');
       if (statusEl) statusEl.textContent = 'Connexion en cours...';
@@ -125,8 +127,10 @@ class DeckPadApp {
         this._showConnectError(err.message);
         if (statusEl) statusEl.textContent = 'Échec de la connexion';
       } finally {
-        connectBtn.querySelector('.btn-text').textContent = 'Connexion';
-        connectBtn.querySelector('.btn-loader').classList.add('hidden');
+        const btnText = connectBtn.querySelector('.btn-text');
+        const btnLoader = connectBtn.querySelector('.btn-loader');
+        if (btnText) btnText.textContent = 'Connexion';
+        if (btnLoader) btnLoader.classList.add('hidden');
         connectBtn.disabled = false;
       }
     });

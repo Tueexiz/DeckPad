@@ -63,3 +63,81 @@
 [INFO] 2026-05-11T20:06:16.498Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
 [INFO] 2026-05-11T20:06:16.500Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
 [INFO] 2026-05-11T20:06:16.500Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-11T20:08:02.865Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:02.875Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:03.069Z [AudioMeter] Démarrage peak meter
+[INFO] 2026-05-11T20:08:06.301Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:06.317Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:34.161Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-11T20:08:34.689Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-11T20:08:34.704Z [ConnectionManager] Manager prêt {"pin":"1953"}
+[INFO] 2026-05-11T20:08:34.719Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-11T20:08:37.909Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[WARN] 2026-05-11T20:08:37.913Z [ConnectionManager] Échec authentification {"pinTried":"4798"}
+[INFO] 2026-05-11T20:08:37.920Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:37.921Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-11T20:08:40.473Z [Server] Mise à jour disponible {"version":"1.14.48","url":"https://github.com/anomalyco/opencode/releases/tag/v1.14.48","publishedAt":"2026-05-11T02:07:50Z"}
+[INFO] 2026-05-11T20:08:47.348Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:47.354Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:52.245Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:52.253Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:53.250Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:53.266Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:53.551Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:53.557Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:54.078Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:54.091Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:54.886Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:54.907Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:55.262Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:55.271Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:55.379Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:55.389Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:55.593Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:55.605Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:55.796Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:55.812Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:56.032Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:56.040Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:56.247Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:56.259Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:56.445Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:56.453Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:56.596Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:56.603Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:56.819Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:56.828Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:57.022Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:57.038Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:57.229Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:57.252Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:57.404Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:57.410Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:57.629Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:57.644Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:57.828Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:57.846Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:58.050Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:58.059Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:58.250Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:58.265Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:58.441Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:58.457Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:58.653Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:58.674Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:58.855Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:58.880Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:59.048Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:59.063Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:59.241Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:59.254Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:59.451Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:59.470Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:59.636Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:59.641Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:08:59.805Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:08:59.825Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:09:00.002Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:09:00.016Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:09:00.181Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:09:00.192Z [ConnectionManager] Client authentifié

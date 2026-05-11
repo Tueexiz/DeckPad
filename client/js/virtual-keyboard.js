@@ -63,6 +63,7 @@ class VirtualKeyboard {
       ]
     ];
 
+    if (!this.container) return;
     this.container.innerHTML = '';
     for (const row of rows) {
       const rowEl = document.createElement('div');

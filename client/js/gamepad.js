@@ -48,21 +48,31 @@ class GamepadController {
     setTimeout(() => {
       if (typeof nipplejs === 'undefined') return;
 
-      const leftJoy = nipplejs.create({
-        zone: document.getElementById('joystick-left'),
-        mode: 'static',
-        position: { left: '50%', top: '50%' },
-        color: 'var(--accent-primary)',
-        size: 100
-      });
+      const leftZone = document.getElementById('joystick-left');
+      if (leftZone) {
+        const leftJoy = nipplejs.create({
+          zone: leftZone,
+          mode: 'static',
+          position: { left: '50%', top: '50%' },
+          color: 'var(--accent-primary)',
+          size: 100
+        });
 
-      const rightJoy = nipplejs.create({
-        zone: document.getElementById('joystick-right'),
-        mode: 'static',
-        position: { left: '50%', top: '50%' },
-        color: 'var(--accent-secondary)',
-        size: 100
-      });
+        // ... event handlers for leftJoy ...
+      }
+
+      const rightZone = document.getElementById('joystick-right');
+      if (rightZone) {
+        const rightJoy = nipplejs.create({
+          zone: rightZone,
+          mode: 'static',
+          position: { left: '50%', top: '50%' },
+          color: 'var(--accent-secondary)',
+          size: 100
+        });
+
+        // ... event handlers for rightJoy ...
+      }
 
       // Gestion Joystick Gauche (Simulation touches ZQSD)
       let activeKeys = new Set();
