@@ -25,3 +25,12 @@
 [INFO] 2026-05-11T19:56:38.952Z [AudioManager] Detection outillage {"nircmd":false}
 [INFO] 2026-05-11T19:56:38.971Z [ConnectionManager] Manager prêt {"pin":"5417"}
 [INFO] 2026-05-11T19:56:38.994Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-11T19:58:21.606Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-11T19:58:22.309Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-11T19:58:22.325Z [ConnectionManager] Manager prêt {"pin":"7386"}
+[INFO] 2026-05-11T19:58:22.342Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-11T19:58:27.984Z [Server] Mise à jour disponible {"version":"1.14.48","url":"https://github.com/anomalyco/opencode/releases/tag/v1.14.48","publishedAt":"2026-05-11T02:07:50Z"}
+[INFO] 2026-05-11T20:03:19.940Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:03:19.945Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:03:25.295Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:03:25.304Z [ConnectionManager] Client authentifié

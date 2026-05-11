@@ -488,3 +488,394 @@ html.dark .status-pill {
 html.dark .modal-content {
   background: rgba(15, 23, 42, 0.85);
 }
+
+/* ═══════════════════════════════════════════════════════════
+   CONNECT VIEW — Premium Login Screen
+   ═══════════════════════════════════════════════════════════ */
+#view-connect {
+  background: radial-gradient(circle at 20% 0%, var(--blue-100) 0%, var(--white-snow) 50%, var(--white-pure) 100%);
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+#view-connect::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  right: -150px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--blue-300) 0%, transparent 70%);
+  opacity: 0.4;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  animation: ambient-glow 6s ease-in-out infinite;
+}
+
+#view-connect::after {
+  content: '';
+  position: absolute;
+  bottom: -180px;
+  left: -120px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, var(--blue-400) 0%, transparent 70%);
+  opacity: 0.25;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  animation: ambient-glow 8s ease-in-out infinite reverse;
+}
+
+.connect-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  margin: auto;
+  animation: slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── Logo Bloc ─── */
+.connect-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-md);
+}
+
+.logo-icon {
+  width: 88px;
+  height: 88px;
+  border-radius: var(--radius-2xl);
+  background: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-700) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white-pure);
+  box-shadow:
+    0 20px 50px rgba(37, 99, 235, 0.35),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: pulse-neon 3s ease-in-out infinite;
+}
+
+.logo-icon i,
+.logo-icon svg {
+  width: 44px;
+  height: 44px;
+  stroke-width: 2.2;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+.logo-title {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  background: linear-gradient(135deg, var(--blue-700) 0%, var(--blue-500) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: var(--space-sm);
+}
+
+.logo-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+
+/* ─── Form Card ─── */
+.connect-form {
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-3xl);
+  padding: var(--space-2xl) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  box-shadow:
+    var(--shadow-float),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* ─── Mode Switcher (WiFi / USB) ─── */
+.connect-mode {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  background: var(--white-frost);
+  padding: 6px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--white-silver);
+}
+
+.mode-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-lg);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mode-btn i,
+.mode-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.mode-btn:hover:not(.active) {
+  color: var(--blue-600);
+  background: var(--white-pure);
+}
+
+.mode-btn.active {
+  background: var(--white-pure);
+  color: var(--blue-700);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ─── Field Groups ─── */
+.connect-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.field-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  padding-left: 4px;
+}
+
+.field-input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1.5px solid var(--white-silver);
+  border-radius: var(--radius-lg);
+  background: var(--white-pure);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-main);
+  transition: all var(--transition-base);
+  outline: none;
+}
+
+.field-input::placeholder {
+  color: var(--white-ghost);
+  font-weight: 400;
+}
+
+.field-input:focus {
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+  background: var(--white-pure);
+}
+
+/* ─── PIN Inputs ─── */
+.pin-inputs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+}
+
+.pin-digit {
+  aspect-ratio: 1;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--blue-700);
+  background: var(--white-pure);
+  border: 1.5px solid var(--white-silver);
+  border-radius: var(--radius-lg);
+  outline: none;
+  transition: all var(--transition-base);
+  caret-color: var(--blue-600);
+}
+
+.pin-digit:focus {
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+  transform: translateY(-2px);
+}
+
+.pin-digit:not(:placeholder-shown),
+.pin-digit[value]:not([value=""]) {
+  border-color: var(--blue-400);
+  background: var(--blue-50);
+}
+
+/* ─── Connect Button ─── */
+.btn-connect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: 16px 24px;
+  border: none;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-700) 100%);
+  color: var(--white-pure);
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow:
+    0 10px 30px rgba(37, 99, 235, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  margin-top: var(--space-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-connect i,
+.btn-connect svg {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-connect:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 15px 40px rgba(37, 99, 235, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-connect:active {
+  transform: translateY(0);
+  box-shadow:
+    0 5px 15px rgba(37, 99, 235, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-connect:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-connect.danger {
+  background: linear-gradient(135deg, var(--blue-700) 0%, var(--blue-900) 100%);
+  box-shadow: 0 10px 30px rgba(30, 58, 138, 0.4);
+}
+
+.btn-loader {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--white-pure);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.btn-loader.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Status & Error ─── */
+.connect-status {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-top: var(--space-xs);
+}
+
+.connect-error {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue-800);
+  background: rgba(30, 64, 175, 0.08);
+  border: 1px solid rgba(30, 64, 175, 0.2);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  margin-top: var(--space-xs);
+  animation: slide-up 0.3s ease;
+}
+
+.connect-error.hidden {
+  display: none;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 380px) {
+  .logo-title { font-size: 36px; }
+  .logo-icon { width: 76px; height: 76px; }
+  .logo-icon i, .logo-icon svg { width: 38px; height: 38px; }
+  .connect-form { padding: var(--space-xl) var(--space-lg); }
+  .pin-digit { font-size: 24px; }
+}
+
+/* ─── Dark Mode Support ─── */
+html.dark #view-connect {
+  background: radial-gradient(circle at 20% 0%, #1e3a8a 0%, #0a1628 50%, #020617 100%);
+}
+
+html.dark .logo-title {
+  background: linear-gradient(135deg, var(--blue-300) 0%, var(--blue-500) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.dark .connect-mode {
+  background: rgba(15, 23, 42, 0.5);
+  border-color: rgba(96, 165, 250, 0.2);
+}
+
+html.dark .mode-btn.active {
+  background: rgba(37, 99, 235, 0.25);
+  color: var(--blue-300);
+}
+
+html.dark .field-input,
+html.dark .pin-digit {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(96, 165, 250, 0.25);
+  color: var(--blue-100);
+}
+
+html.dark .pin-digit:not(:placeholder-shown) {
+  background: rgba(37, 99, 235, 0.2);
+}

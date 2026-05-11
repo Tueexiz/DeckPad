@@ -17,7 +17,7 @@ const SHELL_ASSETS = [
   '/',
   '/index.html',
   '/manifest.webmanifest',
-  '/dist/deckpad.808517b0.min.css',
+  '/dist/deckpad.ea6607d5.min.css',
   '/dist/deckpad.5ccbdff7.min.js',
   '/icons/icon-192.svg',
   '/icons/icon-512.svg',
