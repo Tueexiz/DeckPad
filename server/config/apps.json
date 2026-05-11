@@ -1,0 +1,52 @@
+{
+  "apps": [
+    {
+      "id": "steam",
+      "name": "Steam",
+      "icon": "gamepad-2",
+      "path": "steam://open/main",
+      "color": "#171a21",
+      "category": "game"
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "icon": "message-square",
+      "path": "discord://",
+      "color": "#5865F2",
+      "category": "system"
+    },
+    {
+      "id": "apple_music",
+      "name": "Apple Music",
+      "icon": "music",
+      "path": "shell:AppsFolder\\AppleInc.AppleMusicWin_nzyj5cx40ttqa!App",
+      "color": "#fc3c44",
+      "category": "media"
+    },
+    {
+      "id": "chrome",
+      "name": "Chrome",
+      "icon": "chrome",
+      "path": "chrome.exe",
+      "color": "#4285F4",
+      "category": "system"
+    },
+    {
+      "id": "rocket_league",
+      "name": "Rocket League",
+      "icon": "trophy",
+      "path": "com.epicgames.launcher://apps/9773aa1aa54f4f7b80e44bef04986cea%3A530145df28a24424923f5828cc9031a1%3ASugar?action=launch&silent=true",
+      "color": "#0078F2",
+      "category": "game"
+    },
+    {
+      "id": "epic_games",
+      "name": "Epic Games",
+      "icon": "layout-grid",
+      "path": "com.epicgames.launcher://",
+      "color": "#2a2a2a",
+      "category": "game"
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+/* ═══════════════════════════════════════════════════════
+   STREAM DECK 3D — Pro Gamer White & Blue Edition
+   Ultra-Realistic 3D Buttons with Glassmorphism
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  --font-deck: 'Outfit', 'Inter', sans-serif;
+  
+  /* Core Palette: Blue & White */
+  --deck-blue-primary:   #3b82f6;
+  --deck-blue-deep:      #1d4ed8;
+  --deck-blue-glow:      rgba(59, 130, 246, 0.5);
+  
+  --deck-white-pure:     #ffffff;
+  --deck-white-glass:    rgba(255, 255, 255, 0.25);
+  --deck-white-frosted:  rgba(255, 255, 255, 0.85);
+  
+  --deck-chassis-bg:     linear-gradient(135deg, #419bf5 0%, #2563eb 100%);
+  --deck-btn-size:       90px;
+  --deck-btn-depth:      8px;
+  --deck-press-depth:    4px;
+  --deck-radius:         12px;
+}
+
+/* ─── Chassis: The Physical Body ─── */
+.stream-deck-chassis {
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 25px;
+  background: var(--deck-chassis-bg);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.2),
+    inset 0 2px 5px rgba(255, 255, 255, 0.4);
+  position: relative;
+}
+
+.stream-deck-chassis .deck-label {
+  font-family: var(--font-deck);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+/* ─── Button Grid ─── */
+.stream-deck-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--deck-cols, 6), var(--deck-btn-size));
+  gap: 12px;
+  transform-style: preserve-3d;
+}
+
+/* ─── Individual Key ─── */
+.deck-key {
+  position: relative;
+  width: var(--deck-btn-size);
+  height: var(--deck-btn-size);
+  transform-style: preserve-3d;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(var(--deck-btn-depth));
+}
+
+/* ═══ TOP FACE: Frosted Glass LCD ═══ */
+.deck-key .key-face-top {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--deck-radius);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  overflow: hidden;
+
+  /* Frosted White Glass */
+  background: linear-gradient(145deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(240, 248, 255, 0.85) 100%);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.8),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.05),
+    0 5px 15px rgba(0, 0, 0, 0.1);
+
+  transition: all 150ms ease;
+}
+
+/* Glossy highlight */
+.deck-key .key-face-top::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Special Glassmorphism for Covers */
+.deck-key .key-face-top.has-cover {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.deck-key .key-face-top.has-cover .key-icon,
+.deck-key .key-face-top.has-cover .key-label {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--deck-blue-deep);
+  padding: 3px 8px;
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
+  transform: translateZ(10px);
+}
+
+/* ═══ SIDE FACES: Depth and Shadows ═══ */
+.deck-key .key-face-bottom {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: var(--deck-btn-depth);
+  transform: rotateX(-90deg);
+  transform-origin: bottom center;
+  background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);
+  border-radius: 0 0 4px 4px;
+}
+
+.deck-key .key-face-right {
+  position: absolute;
+  top: 0; bottom: 0; right: 0;
+  width: var(--deck-btn-depth);
+  transform: rotateY(90deg);
+  transform-origin: right center;
+  background: linear-gradient(90deg, #e2e8f0 0%, #cbd5e1 100%);
+}
+
+.deck-key .key-face-left {
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: var(--deck-btn-depth);
+  transform: rotateY(-90deg);
+  transform-origin: left center;
+  background: linear-gradient(-90deg, #e2e8f0 0%, #cbd5e1 100%);
+}
+
+.deck-key .key-face-top-edge {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: var(--deck-btn-depth);
+  transform: rotateX(90deg);
+  transform-origin: top center;
+  background: #f8fafc;
+}
+
+/* ═══ BACKLIGHT ═══ */
+.deck-key .key-backlight {
+  position: absolute;
+  inset: 15%;
+  background: var(--deck-blue-glow);
+  filter: blur(20px);
+  opacity: 0.4;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ═══ Icon & Label ═══ */
+.deck-key .key-icon {
+  z-index: 5;
+  color: var(--key-color, var(--deck-blue-primary));
+  filter: drop-shadow(0 2px 4px rgba(37, 99, 235, 0.2));
+  transition: transform 200ms ease;
+}
+
+.deck-key .key-icon svg {
+  width: 30px;
+  height: 30px;
+  stroke-width: 2;
+}
+
+.deck-key .key-label {
+  z-index: 5;
+  font-family: var(--font-deck);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--key-color, var(--deck-blue-deep));
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ═══ Hover & Active ═══ */
+.deck-key:hover .key-face-top {
+  background: var(--deck-white-pure);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.15);
+}
+
+.deck-key:active {
+  transform: translateZ(var(--deck-press-depth));
+}
+
+.deck-key:active .key-face-bottom { height: calc(var(--deck-btn-depth) - var(--deck-press-depth)); }
+.deck-key:active .key-face-right { width: calc(var(--deck-btn-depth) - var(--deck-press-depth)); }
+.deck-key:active .key-face-left { width: calc(var(--deck-btn-depth) - var(--deck-press-depth)); }
+
+/* ═══ Color States ═══ */
+.deck-key[data-color="blue"], .deck-key.active {
+  --key-color: #2563eb;
+}
+
+.deck-key.danger {
+  --key-color: #1e40af; /* Deep blue instead of red for 100% theme consistency */
+}
+
+/* ═══ Ripple Effect ═══ */
+.deck-key .key-ripple {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--deck-radius);
+  z-index: 10;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.deck-key.rippling .key-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  animation: ripple 400ms ease-out forwards;
+}
+
+@keyframes ripple {
+  0%   { width: 0; height: 0; opacity: 1; }
+  100% { width: 200%; height: 200%; opacity: 0; }
+}
+
+.quick-actions-deck-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

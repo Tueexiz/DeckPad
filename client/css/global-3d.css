@@ -1,0 +1,124 @@
+/* ═══════════════════════════════════════════════════════
+   GLOBAL 3D DESIGN SYSTEM — Pro Gamer Edition
+   Strict Blue & White Contrast Polish
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  --3d-white-glass: rgba(255, 255, 255, 0.7);
+  --3d-blue-main:   #2563eb;
+  --3d-blue-dark:   #1e3a8a;
+  --3d-blue-glow:   rgba(37, 99, 235, 0.4);
+}
+
+/* ─── Global 3D Cards ─── */
+.stat-card, 
+.app-tile, 
+.gauge-card, 
+.media-player-pro,
+.mixer-channel,
+.sound-pad,
+.settings-group {
+  position: relative;
+  transform-style: preserve-3d;
+  background: var(--3d-white-glass);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.05),
+    inset 0 2px 5px rgba(255, 255, 255, 1);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Fix Contrast for Stats & Text */
+.stat-label, .mixer-label, .gauge-label {
+  color: var(--3d-blue-dark) !important;
+  font-weight: 700 !important;
+}
+
+.stat-value, .gauge-value {
+  color: var(--3d-blue-main) !important;
+  font-weight: 800 !important;
+}
+
+/* ─── Soundboard Pads (High Contrast) ─── */
+.sound-pad {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  color: var(--3d-blue-dark) !important;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.sound-pad i, .sound-pad svg {
+  color: var(--3d-blue-main) !important;
+  font-size: 32px;
+  margin-bottom: 5px;
+  filter: drop-shadow(0 2px 4px rgba(37, 99, 235, 0.2));
+}
+
+.sound-pad:hover {
+  transform: translateZ(15px) scale(1.05);
+  background: white;
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+}
+
+/* ─── Gauges ─── */
+.gauge-ring svg circle.gauge-bg {
+  stroke: rgba(37, 99, 235, 0.05);
+}
+
+.gauge-ring svg circle.gauge-fill {
+  stroke: var(--3d-blue-main);
+  filter: drop-shadow(0 0 5px var(--3d-blue-glow));
+}
+
+/* ─── Mixer Polish ─── */
+.mixer-channel {
+  padding: 20px;
+}
+
+.mixer-icon i {
+  color: var(--3d-blue-main);
+  font-size: 24px;
+}
+
+.mixer-slider {
+  accent-color: var(--3d-blue-main);
+}
+
+/* ─── Physical Depth Pseudo-elements ─── */
+.stat-card::after,
+.app-tile::after,
+.gauge-card::after,
+.sound-pad::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.03);
+  transform: translateZ(-5px);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* ─── Media Player Pro ─── */
+.media-player-pro {
+  padding: 20px;
+  border: 1px solid rgba(37, 99, 235, 0.15);
+}
+
+#media-title {
+  color: var(--3d-blue-dark) !important;
+  font-weight: 800;
+}
+
+#media-artist {
+  color: var(--3d-blue-main) !important;
+  font-weight: 600;
+}

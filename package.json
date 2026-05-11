@@ -1,0 +1,25 @@
+{
+  "name": "deckpad",
+  "version": "1.0.0",
+  "description": "DeckPad - Contrôle ton PC depuis ta tablette Android, style Steam Deck",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "dependencies": {
+    "@coooookies/windows-smtc-monitor": "^1.0.12",
+    "express": "^4.21.0",
+    "koffi": "^2.9.0",
+    "systeminformation": "^5.23.0",
+    "ws": "^8.18.0"
+  },
+  "keywords": [
+    "remote-control",
+    "steam-deck",
+    "android",
+    "tablet"
+  ],
+  "author": "Robin",
+  "license": "MIT"
+}

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#ffffff">
+  <title>DeckPad Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/stream-deck.css">
+  <link rel="stylesheet" href="css/global-3d.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- ═══════ ÉCRAN DE CONNEXION ═══════ -->
+    <section id="view-connect" class="view active">
+      <div class="connect-container">
+        <div class="connect-logo">
+          <div class="logo-icon">
+            <i data-lucide="gamepad-2"></i>
+          </div>
+          <h1 class="logo-title">DeckPad</h1>
+          <p class="logo-subtitle">Contrôle ton PC avec style</p>
+        </div>
+
+        <div class="connect-form">
+          <div class="connect-mode">
+            <button id="btn-mode-wifi" class="mode-btn active" data-mode="wifi">
+              <i data-lucide="wifi"></i> WiFi
+            </button>
+            <button id="btn-mode-usb" class="mode-btn" data-mode="usb">
+              <i data-lucide="usb"></i> USB
+            </button>
+          </div>
+
+          <div id="wifi-fields" class="connect-fields">
+            <label class="field-label">Adresse IP</label>
+            <input type="text" id="input-ip" class="field-input" placeholder="192.168.1.xxx">
+          </div>
+
+          <div class="connect-fields">
+            <label class="field-label">Code PIN</label>
+            <div class="pin-inputs">
+              <input type="tel" class="pin-digit" maxlength="1" data-idx="0">
+              <input type="tel" class="pin-digit" maxlength="1" data-idx="1">
+              <input type="tel" class="pin-digit" maxlength="1" data-idx="2">
+              <input type="tel" class="pin-digit" maxlength="1" data-idx="3">
+            </div>
+          </div>
+
+          <button id="btn-connect" class="btn-connect">
+            <i data-lucide="power"></i>
+            <span class="btn-text">Se connecter</span>
+            <span class="btn-loader hidden"></span>
+          </button>
+          <p id="connect-error" class="connect-error hidden"></p>
+          <p id="connect-status" class="connect-status">Prêt</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ APP PRINCIPALE ═══════ -->
+    <div id="main-app" class="hidden">
+
+      <header id="app-header">
+        <div class="header-left">
+          <span class="header-pc-name" id="header-pc-name">PC-GAMER</span>
+          <span class="header-connection-dot"></span>
+        </div>
+        <div class="header-title" id="header-title">Accueil</div>
+        <div class="header-right">
+          <span class="header-stat" id="header-time">--:--</span>
+        </div>
+      </header>
+
+      <!-- VUE DASHBOARD -->
+      <section id="view-dashboard" class="view active">
+        <div class="dashboard-grid">
+          <div class="stats-row">
+            <div class="stat-card">
+              <span class="stat-label">CPU</span>
+              <span class="stat-value" id="stat-cpu-value">--%</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">RAM</span>
+              <span class="stat-value" id="stat-ram-value">--%</span>
+            </div>
+          </div>
+
+          <div class="stream-deck-chassis">
+            <div class="deck-label">DeckPad 3D</div>
+            <div class="stream-deck-grid" style="--deck-cols: 4;">
+              <!-- Ligne 1 -->
+              <button class="deck-key" data-action="media_prev">
+                <div class="key-face-top"><i data-lucide="skip-back"></i></div>
+                <div class="key-face-bottom"></div><div class="key-face-right"></div><div class="key-face-left"></div><div class="key-face-top-edge"></div>
+              </button>
+              <button class="deck-key" data-action="media_play" id="action-play">
+                <div class="key-face-top"><i data-lucide="play"></i></div>
+                <div class="key-face-bottom"></div><div class="key-face-right"></div><div class="key-face-left"></div><div class="key-face-top-edge"></div>
+              </button>
+              <button class="deck-key" data-action="media_next">
+                <div class="key-face-top"><i data-lucide="skip-forward"></i></div>
+                <div class="key-face-bottom"></div><div class="key-face-right"></div><div class="key-face-left"></div><div class="key-face-top-edge"></div>
+              </button>
+              <button class="deck-key" data-action="volume_mute">
+                <div class="key-face-top"><i data-lucide="volume-x"></i></div>
+                <div class="key-face-bottom"></div><div class="key-face-right"></div><div class="key-face-left"></div><div class="key-face-top-edge"></div>
+              </button>
+              <!-- Ligne 2 -->
+              <button class="deck-key" data-action="volume_down">
+                <div class="key-face-top"><i data-lucide="volume-1"></i></div>
+                <div class="key-face-bottom"></div><div class="key-face-right"></div><div class="key-face-left"></div><div class="key-face-top-edge"></div>
+              </button>
+              <button class="deck-key" data-action="volume_up">
+                <div class="key-face-top"><i data-lucide="volume-2"></i></div>
+                <div class="key-face-bottom"></div><div class="key-face-right"></div><div class="key-face-left"></div><div class="key-face-top-edge"></div>
+              </button>
+              <button class="deck-key" data-action="desktop">
+                <div class="key-face-top"><i data-lucide="monitor"></i></div>
+                <div class="key-face-bottom"></div><div class="key-face-right"></div><div class="key-face-left"></div><div class="key-face-top-edge"></div>
+              </button>
+              <button class="deck-key danger" data-action="shutdown">
+                <div class="key-face-top"><i data-lucide="power"></i></div>
+                <div class="key-face-bottom"></div><div class="key-face-right"></div><div class="key-face-left"></div><div class="key-face-top-edge"></div>
+              </button>
+            </div>
+          </div>
+
+          <div class="apps-grid" id="apps-grid">
+            <!-- Apps directes -->
+          </div>
+        </div>
+      </section>
+
+      <!-- VUE SOUNDBOARD -->
+      <section id="view-soundboard" class="view">
+        <div class="soundboard-container">
+          <div class="media-player-pro">
+            <div class="media-content">
+              <div class="media-info">
+                <h2 id="media-title">Aucun média</h2>
+                <p id="media-artist">Prêt</p>
+              </div>
+              <div class="media-controls-pro">
+                <button class="media-btn-pro" data-action="media_prev"><i data-lucide="skip-back"></i></button>
+                <button class="media-btn-pro play" data-action="media_play"><i data-lucide="play"></i></button>
+                <button class="media-btn-pro" data-action="media_next"><i data-lucide="skip-forward"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mixer-section">
+            <div class="mixer-grid">
+              <div class="mixer-channel">
+                <i data-lucide="volume-2"></i>
+                <input type="range" class="mixer-slider" id="mixer-master" data-app="master" min="0" max="100">
+                <span class="mixer-label">Master</span>
+              </div>
+              <div class="mixer-channel">
+                <i data-lucide="mic"></i>
+                <input type="range" class="mixer-slider" id="mixer-mic" data-app="mic" min="0" max="100">
+                <span class="mixer-label">Micro</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sound-pads">
+            <button class="sound-pad" data-sound="airhorn"><i data-lucide="megaphone"></i> Airhorn</button>
+            <button class="sound-pad" data-sound="meme"><i data-lucide="smile"></i> Meme</button>
+            <button class="sound-pad" data-sound="clap"><i data-lucide="clapping-hands"></i> Clap</button>
+            <button class="sound-pad" data-sound="fail"><i data-lucide="thumbs-down"></i> Fail</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- VUE MONITOR -->
+      <section id="view-monitor" class="view">
+        <div class="monitor-container">
+          <div class="gauge-card">
+            <div class="gauge-ring">
+              <svg viewBox="0 0 100 100">
+                <circle class="gauge-bg" cx="50" cy="50" r="45"></circle>
+                <circle class="gauge-fill" id="fill-cpu" cx="50" cy="50" r="45"></circle>
+              </svg>
+              <div class="gauge-data">
+                <span class="gauge-label">CPU</span>
+                <span class="gauge-value" id="val-cpu">0%</span>
+              </div>
+            </div>
+          </div>
+          <div class="gauge-card">
+            <div class="gauge-ring">
+              <svg viewBox="0 0 100 100">
+                <circle class="gauge-bg" cx="50" cy="50" r="45"></circle>
+                <circle class="gauge-fill" id="fill-ram" cx="50" cy="50" r="45"></circle>
+              </svg>
+              <div class="gauge-data">
+                <span class="gauge-label">RAM</span>
+                <span class="gauge-value" id="val-ram">0%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VUE SETTINGS -->
+      <section id="view-settings" class="view">
+        <div class="settings-container">
+          <div class="settings-group">
+            <h3>Paramètres</h3>
+            <div class="mixer-channel">
+               <span>Sensibilité Touchpad</span>
+               <input type="range" id="setting-sensitivity" min="1" max="20" value="8">
+            </div>
+          </div>
+          <button id="btn-disconnect" class="btn-connect danger">Déconnexion</button>
+        </div>
+      </section>
+
+      <!-- NAVIGATION BASSE -->
+      <nav id="bottom-nav">
+        <button class="nav-btn active" data-view="dashboard">
+          <i data-lucide="layout-dashboard" class="nav-icon"></i>
+          <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-btn" data-view="soundboard">
+          <i data-lucide="music" class="nav-icon"></i>
+          <span class="nav-label">Sons</span>
+        </button>
+        <button class="nav-btn" data-view="monitor">
+          <i data-lucide="activity" class="nav-icon"></i>
+          <span class="nav-label">Stats</span>
+        </button>
+        <button class="nav-btn" data-view="settings">
+          <i data-lucide="settings" class="nav-icon"></i>
+          <span class="nav-label">Config</span>
+        </button>
+      </nav>
+
+    </div>
+
+    <!-- Modals & Toasts -->
+    <div id="toast-container" class="toast-container"></div>
+  </div>
+
+  <script src="js/connection.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/system-dashboard.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+/* ═══════════════════════════════════════════════════════
+   DESIGN SYSTEM — DeckPad Pro Gamer
+   Strict Blue & White Palette
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  /* Colors */
+  --blue-50:  #eff6ff;
+  --blue-100: #dbeafe;
+  --blue-200: #bfdbfe;
+  --blue-300: #93c5fd;
+  --blue-400: #60a5fa;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+  --blue-800: #1e40af;
+  --blue-900: #1e3a8a;
+
+  --white-pure:   #ffffff;
+  --white-snow:   #f8fafc;
+  --white-ice:    #f1f5f9;
+  --white-silver: #e2e8f0;
+  --white-ghost:  #cbd5e1;
+
+  --gray-100: #94a3b8;
+  --gray-200: #64748b;
+  --gray-300: #475569;
+  --gray-400: #334155;
+  --gray-500: #1e293b;
+  --gray-600: #0f172a;
+  --gray-700: #020617;
+
+  /* Theme Mapping */
+  --accent-primary: var(--blue-600);
+  --accent-light:   var(--blue-400);
+  --accent-glow:    rgba(37, 99, 235, 0.4);
+  
+  --bg-main:    var(--white-snow);
+  --bg-card:    var(--white-pure);
+  --bg-glass:   rgba(255, 255, 255, 0.7);
+  
+  --text-main:  var(--gray-600);
+  --text-muted: var(--gray-200);
+  --text-blue:  var(--blue-700);
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+  --shadow-3d: 0 10px 40px rgba(37, 99, 235, 0.1);
+  --shadow-blue: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
+
+  /* Spacing */
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+
+  /* Fonts */
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+}
