@@ -224,7 +224,7 @@ html.no-anim *::after {
    ═══════════════════════════════════════════════════════════ */
 #banner-host {
   position: fixed;
-  top: 8px;
+  top: 65px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 5000;

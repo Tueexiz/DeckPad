@@ -91,15 +91,17 @@ class ScreenViewer {
   }
 
   _updateUI() {
+    this.toggleBtn = document.getElementById('btn-stream-toggle');
     if (this.streaming) {
-      this.toggleBtn = document.getElementById('btn-stream-toggle');
-      if (this.toggleBtn) this.toggleBtn.textContent = '⏹️ Arrêter le stream';
+      if (this.toggleBtn) this.toggleBtn.innerHTML = '<i data-lucide="square"></i> Arrêter le stream';
       if (this.touchInfo) this.touchInfo.classList.remove('hidden');
+      if (this.overlay) this.overlay.classList.add('streaming');
     } else {
       if (this.overlay) this.overlay.classList.remove('streaming');
-      if (this.toggleBtn) this.toggleBtn.textContent = '▶️ Démarrer le stream';
+      if (this.toggleBtn) this.toggleBtn.innerHTML = '<i data-lucide="play"></i> Démarrer le stream';
       if (this.touchInfo) this.touchInfo.classList.add('hidden');
     }
+    if (window.lucide) lucide.createIcons();
   }
 
   /**

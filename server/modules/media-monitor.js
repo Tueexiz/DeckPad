@@ -39,7 +39,7 @@ class MediaMonitor extends EventEmitter {
     if (!sessions || sessions.length === 0) return null;
 
     // On prend la session active ou la première
-    const session = sessions.find(s => s.playbackInfo && s.playbackInfo.playbackStatus === PlaybackStatus.Playing) || sessions[0];
+    const session = sessions.find(s => s.playbackInfo && s.playbackInfo.playbackStatus === PlaybackStatus.PLAYING) || sessions[0];
     
     if (!session) return null;
 
@@ -47,7 +47,7 @@ class MediaMonitor extends EventEmitter {
       title: session.mediaProperties?.title || 'Inconnu',
       artist: session.mediaProperties?.artist || 'Artiste inconnu',
       album: session.mediaProperties?.albumTitle || '',
-      status: session.playbackInfo?.playbackStatus === PlaybackStatus.Playing ? 'playing' : 'paused',
+      status: session.playbackInfo?.playbackStatus === PlaybackStatus.PLAYING ? 'playing' : 'paused',
       appId: session.sourceAppId || '',
       thumbnail: session.mediaProperties?.thumbnail ? `data:image/jpeg;base64,${session.mediaProperties.thumbnail}` : null,
       appName: this._getAppName(session.sourceAppId)

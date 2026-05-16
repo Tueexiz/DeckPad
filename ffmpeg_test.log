@@ -1,0 +1,27 @@
+ffmpeg version 8.1.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 15.2.0 (Rev13, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-cairo --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-liboapv --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libsvtjpegxs --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libshaderc --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-openal --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint --enable-whisper
+  libavutil      60. 26.101 / 60. 26.101
+  libavcodec     62. 28.101 / 62. 28.101
+  libavformat    62. 12.101 / 62. 12.101
+  libavdevice    62.  3.101 / 62.  3.101
+  libavfilter    11. 14.101 / 11. 14.101
+  libswscale      9.  5.101 /  9.  5.101
+  libswresample   6.  3.101 /  6.  3.101
+[in#0 @ 000002bda8b0ff40] Capturing whole desktop as 1920x1080x32 at (0,0)
+[in#0/gdigrab @ 000002bda8b0ff40] Stream #0: not enough frames to estimate rate; consider increasing probesize
+Input #0, gdigrab, from 'desktop':
+  Duration: N/A, start: 1778850086.821025, bitrate: 1327112 kb/s
+  Stream #0:0: Video: bmp, bgra, 1920x1080, 1327112 kb/s, 20 fps, 1000k tbr, 1000k tbn, start 1778850086.821025
+Stream mapping:
+  Stream #0:0 -> #0:0 (bmp (native) -> mjpeg (native))
+Press [q] to stop, [?] for help
+Output #0, mjpeg, to 'pipe:1':
+  Metadata:
+    encoder         : Lavf62.12.101
+  Stream #0:0: Video: mjpeg, yuv444p(pc, progressive), 1280x720, q=2-31, 200 kb/s, 20 fps, 20 tbn
+    Metadata:
+      encoder         : Lavc62.28.101 mjpeg
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/200000 buffer size: 0 vbv_delay: N/A
+frame=    9 fps=0.0 q=5.0 size=     818KiB time=00:00:00.45 bitrate=14891.9kbits/s speed=0.887x elapsed=0:00:00.50    frame=   20 fps= 20 q=5.0 size=    1943KiB time=00:00:01.00 bitrate=15915.8kbits/s speed=0.982x elapsed=0:00:01.01    frame=   30 fps= 19 q=5.0 size=    2965KiB time=00:00:01.50 bitrate=16195.0kbits/s speed=0.971x elapsed=0:00:01.54    frame=   40 fps= 19 q=5.0 size=    3988KiB time=00:00:02.00 bitrate=16334.6kbits/s speed=0.974x elapsed=0:00:02.05    frame=   51 fps= 20 q=5.0 size=    5113KiB time=00:00:02.55 bitrate=16424.9kbits/s speed=0.989x elapsed=0:00:02.57    frame=   61 fps= 20 q=5.0 size=    6135KiB time=00:00:03.05 bitrate=16478.8kbits/s speed=0.988x elapsed=0:00:03.08    frame=   71 fps= 20 q=5.0 size=    7158KiB time=00:00:03.55 bitrate=16517.5kbits/s speed=0.987x elapsed=0:00:03.59    frame=   82 fps= 20 q=5.0 size=    8283KiB time=00:00:04.10 bitrate=16549.1kbits/s speed=0.994x elapsed=0:00:04.12    frame=   92 fps= 20 q=5.0 size=    9305KiB time=00:00:04.60 bitrate=16571.3kbits/s speed=0.993x elapsed=0:00:04.63    frame=  102 fps= 20 q=5.0 size=   10328KiB time=00:00:05.10 bitrate=16589.2kbits/s speed=0.991x elapsed=0:00:05.14    frame=  113 fps= 20 q=5.0 size=   11453KiB time=00:00:05.65 bitrate=16605.2kbits/s speed=0.998x elapsed=0:00:05.65    frame=  123 fps= 20 q=5.0 size=   12475KiB time=00:00:06.15 bitrate=16617.2kbits/s speed=0.994x elapsed=0:00:06.18    frame=  134 fps= 20 q=5.0 size=   13600KiB time=00:00:06.70 bitrate=16628.4kbits/s speed=   1x elapsed=0:00:06.69    frame=  144 fps= 20 q=5.0 size=   14622KiB time=00:00:07.20 bitrate=16637.1kbits/s speed=0.999x elapsed=0:00:07.20    frame=  154 fps= 20 q=5.0 size=   15645KiB time=00:00:07.70 bitrate=16644.7kbits/s speed=0.995x elapsed=0:00:07.73    

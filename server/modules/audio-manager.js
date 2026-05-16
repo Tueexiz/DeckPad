@@ -168,7 +168,8 @@ class AudioManager {
 
     const flow = device === 'master' ? 0 : 1; // 0=render 1=capture
     const psScript = `${PS_SET}\n[AudioControl]::SetVolume(${percent}, ${flow})`;
-    exec(`powershell -NoProfile -Command "${psScript.replace(/"/g, '\\"')}"`, (err) => {
+    const b64 = Buffer.from(psScript, 'utf16le').toString('base64');
+    exec(`powershell -NoProfile -EncodedCommand ${b64}`, (err) => {
       if (err) log.error('Erreur SetVolume', { device, error: err.message });
     });
   }
@@ -178,7 +179,8 @@ class AudioManager {
     const flow = device === 'master' ? 0 : 1;
     const psScript = `${PS_SET}\n[AudioControl]::SetMute($${mute ? 'true' : 'false'}, ${flow})`;
     log.debug('Set mute', { device, mute });
-    exec(`powershell -NoProfile -Command "${psScript.replace(/"/g, '\\"')}"`, (err) => {
+    const b64 = Buffer.from(psScript, 'utf16le').toString('base64');
+    exec(`powershell -NoProfile -EncodedCommand ${b64}`, (err) => {
       if (err) log.error('Erreur SetMute', { device, error: err.message });
     });
   }
@@ -194,7 +196,8 @@ class AudioManager {
     return new Promise((resolve) => {
       const flow = device === 'mic' ? 1 : 0;
       const psScript = `${PS_GET}\n[Audio]::GetState(${flow})`;
-      exec(`powershell -NoProfile -Command "${psScript.replace(/"/g, '\\"')}"`, (err, stdout) => {
+      const b64 = Buffer.from(psScript, 'utf16le').toString('base64');
+      exec(`powershell -NoProfile -EncodedCommand ${b64}`, (err, stdout) => {
         if (err) {
           log.warn('GetState fallback', { device, error: err.message });
           return resolve({ volume: 50, muted: false });

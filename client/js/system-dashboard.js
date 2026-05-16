@@ -182,17 +182,33 @@ class SystemDashboard {
     }
   }
 
+  _getAppIcon(name) {
+    const n = name.toLowerCase();
+    if (n.includes('discord')) return '<img src="https://cdn.simpleicons.org/discord/5865F2" style="width: 100%; height: 100%;">';
+    if (n.includes('chrome')) return '<img src="https://cdn.simpleicons.org/googlechrome/4285F4" style="width: 100%; height: 100%;">';
+    if (n.includes('spotify')) return '<img src="https://cdn.simpleicons.org/spotify/1ED760" style="width: 100%; height: 100%;">';
+    if (n.includes('steam')) return '<img src="https://cdn.simpleicons.org/steam/000000" style="width: 100%; height: 100%;">';
+    if (n.includes('edge')) return '<img src="https://cdn.simpleicons.org/microsoftedge/0078D7" style="width: 100%; height: 100%;">';
+    if (n.includes('obs')) return '<img src="https://cdn.simpleicons.org/obsstudio/302E31" style="width: 100%; height: 100%;">';
+    if (n.includes('firefox')) return '<img src="https://cdn.simpleicons.org/firefoxbrowser/FF7139" style="width: 100%; height: 100%;">';
+    if (n.includes('code') || n.includes('vscode')) return '<img src="https://cdn.simpleicons.org/visualstudiocode/007ACC" style="width: 100%; height: 100%;">';
+    if (n.includes('brave')) return '<img src="https://cdn.simpleicons.org/brave/FF2000" style="width: 100%; height: 100%;">';
+    if (n.includes('epic')) return '<img src="https://cdn.simpleicons.org/epicgames/313131" style="width: 100%; height: 100%;">';
+    
+    return '<i data-lucide="package"></i>';
+  }
+
   renderApps() {
     const grid = this.elements.appsGrid;
-    if (!grid) return;
     if (!grid) return;
     grid.innerHTML = '';
     
     this.apps.forEach(app => {
       const tile = document.createElement('div');
       tile.className = 'app-tile';
+      const iconHtml = app.realIcon ? `<img src="${app.realIcon}" style="width: 100%; height: 100%;">` : this._getAppIcon(app.name);
       tile.innerHTML = `
-        <span class="app-tile-icon">${app.realIcon ? `<img src="${app.realIcon}">` : '<i data-lucide="package"></i>'}</span>
+        <span class="app-tile-icon">${iconHtml}</span>
         <span class="app-tile-name">${app.name}</span>
       `;
       tile.onclick = () => window.deckpadConnection.send({ type: 'launch_app', id: app.id });

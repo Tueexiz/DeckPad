@@ -277,3 +277,124 @@
 [INFO] 2026-05-11T20:39:48.162Z [ScreenCapture] Démarrage FFmpeg {"fps":25,"width":1920,"height":1080,"quality":3}
 [INFO] 2026-05-11T20:39:49.208Z [ScreenCapture] Capture arrêtée (volontaire)
 [INFO] 2026-05-11T20:39:49.230Z [ScreenCapture] FFmpeg terminé {"code":null}
+[INFO] 2026-05-11T20:40:52.103Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:40:52.104Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-11T20:40:52.114Z [AudioMeter] Peak meter terminé {"code":null}
+[INFO] 2026-05-11T20:44:56.880Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-11T20:44:56.886Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-11T20:44:57.084Z [AudioMeter] Démarrage peak meter
+[INFO] 2026-05-11T20:45:02.464Z [ScreenCapture] Démarrage FFmpeg {"fps":25,"width":1920,"height":1080,"quality":3}
+[WARN] 2026-05-11T20:45:14.283Z [ScreenCapture] FFmpeg stderr {"msg":"[in#0/gdigrab @ 0000014de13a3200] Couldn't get cursor info (error 5)"}
+[INFO] 2026-05-15T12:30:13.654Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T12:30:14.374Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T12:30:14.390Z [ConnectionManager] Manager prêt {"pin":"3536"}
+[INFO] 2026-05-15T12:30:14.443Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-15T12:30:15.140Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T12:30:15.758Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T12:30:15.776Z [ConnectionManager] Manager prêt {"pin":"4614"}
+[INFO] 2026-05-15T12:30:15.794Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-15T12:30:21.268Z [Server] Mise à jour disponible {"version":"1.15.0","url":"https://github.com/anomalyco/opencode/releases/tag/v1.15.0","publishedAt":"2026-05-15T04:03:57Z"}
+[INFO] 2026-05-15T12:32:25.258Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T12:32:25.350Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T12:32:25.369Z [ConnectionManager] Manager prêt {"pin":"2305"}
+[INFO] 2026-05-15T12:32:25.383Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-15T12:32:32.328Z [Server] Mise à jour disponible {"version":"1.15.0","url":"https://github.com/anomalyco/opencode/releases/tag/v1.15.0","publishedAt":"2026-05-15T04:03:57Z"}
+[INFO] 2026-05-15T12:38:17.026Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-15T12:38:17.250Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-15T12:38:20.290Z [AudioMeter] Démarrage peak meter
+[INFO] 2026-05-15T12:56:21.588Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T12:56:22.406Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T12:56:22.439Z [ConnectionManager] Manager prêt {"pin":"1369"}
+[ERROR] 2026-05-15T12:56:22.460Z [process] Uncaught exception {"name":"Error","message":"listen EADDRINUSE: address already in use 0.0.0.0:9090","stack":"Error: listen EADDRINUSE: address already in use 0.0.0.0:9090\n    at Server.setupListenHandle [as _listen2] (node:net:1940:16)\n    at listenInCluster (node:net:1997:12)\n    at node:net:2206:7\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)"}
+[INFO] 2026-05-15T12:56:28.015Z [Server] Mise à jour disponible {"version":"1.15.0","url":"https://github.com/anomalyco/opencode/releases/tag/v1.15.0","publishedAt":"2026-05-15T04:03:57Z"}
+[INFO] 2026-05-15T12:56:40.448Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-15T12:56:40.449Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-15T12:56:40.480Z [AudioMeter] Peak meter terminé {"code":null}
+[INFO] 2026-05-15T12:56:48.459Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[WARN] 2026-05-15T12:56:48.460Z [ConnectionManager] Échec authentification {"pinTried":"1369"}
+[INFO] 2026-05-15T12:56:48.463Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-15T12:56:48.463Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-15T12:56:49.540Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[WARN] 2026-05-15T12:56:49.540Z [ConnectionManager] Échec authentification {"pinTried":"1369"}
+[INFO] 2026-05-15T12:56:49.542Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-15T12:56:49.543Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-15T12:56:55.108Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[WARN] 2026-05-15T12:56:55.108Z [ConnectionManager] Échec authentification {"pinTried":"1369"}
+[INFO] 2026-05-15T12:56:55.110Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-15T12:56:55.110Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-15T12:56:55.466Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[WARN] 2026-05-15T12:56:55.467Z [ConnectionManager] Échec authentification {"pinTried":"1369"}
+[INFO] 2026-05-15T12:56:55.468Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-15T12:56:55.469Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-15T12:57:17.233Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T12:57:17.775Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T12:57:17.794Z [ConnectionManager] Manager prêt {"pin":"3070"}
+[INFO] 2026-05-15T12:57:17.812Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-15T12:57:23.516Z [Server] Mise à jour disponible {"version":"1.15.0","url":"https://github.com/anomalyco/opencode/releases/tag/v1.15.0","publishedAt":"2026-05-15T04:03:57Z"}
+[INFO] 2026-05-15T12:57:28.816Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-15T12:57:28.818Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-15T12:57:36.787Z [AudioMeter] Démarrage peak meter
+[INFO] 2026-05-15T12:57:42.568Z [ScreenCapture] Démarrage FFmpeg {"fps":25,"width":1920,"height":1080,"quality":3}
+[INFO] 2026-05-15T12:57:52.238Z [ScreenCapture] Capture arrêtée (volontaire)
+[INFO] 2026-05-15T12:57:54.366Z [ScreenCapture] FFmpeg terminé {"code":null}
+[INFO] 2026-05-15T12:58:38.216Z [AudioManager] Application profil audio {"name":"gaming","profile":{"master":80,"mic":70}}
+[INFO] 2026-05-15T12:58:39.687Z [AudioManager] Application profil audio {"name":"stream","profile":{"master":50,"mic":90}}
+[INFO] 2026-05-15T12:58:40.054Z [AudioManager] Application profil audio {"name":"stream","profile":{"master":50,"mic":90}}
+[INFO] 2026-05-15T12:58:40.110Z [AudioManager] Application profil audio {"name":"musique","profile":{"master":70,"mic":0}}
+[INFO] 2026-05-15T12:58:40.698Z [AudioManager] Application profil audio {"name":"stream","profile":{"master":50,"mic":90}}
+[INFO] 2026-05-15T13:57:19.697Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T13:57:20.224Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T13:57:20.248Z [ConnectionManager] Manager prêt {"pin":"3019"}
+[INFO] 2026-05-15T13:57:20.267Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-15T13:57:20.934Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T13:57:21.482Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T13:57:21.503Z [ConnectionManager] Manager prêt {"pin":"8988"}
+[INFO] 2026-05-15T13:57:21.521Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-15T13:57:21.819Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[WARN] 2026-05-15T13:57:21.822Z [ConnectionManager] Échec authentification {"pinTried":"3070"}
+[INFO] 2026-05-15T13:57:21.825Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-15T13:57:21.826Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-15T13:57:27.078Z [Server] Mise à jour disponible {"version":"1.15.0","url":"https://github.com/anomalyco/opencode/releases/tag/v1.15.0","publishedAt":"2026-05-15T04:03:57Z"}
+[INFO] 2026-05-15T13:57:30.808Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T13:57:31.443Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T13:57:31.463Z [ConnectionManager] Manager prêt {"pin":"6656"}
+[INFO] 2026-05-15T13:57:31.482Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-15T13:57:36.709Z [Server] Mise à jour disponible {"version":"1.15.0","url":"https://github.com/anomalyco/opencode/releases/tag/v1.15.0","publishedAt":"2026-05-15T04:03:57Z"}
+[INFO] 2026-05-15T13:57:46.485Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T13:57:47.111Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T13:57:47.132Z [ConnectionManager] Manager prêt {"pin":"1526"}
+[INFO] 2026-05-15T13:57:47.152Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-15T13:57:52.415Z [Server] Mise à jour disponible {"version":"1.15.0","url":"https://github.com/anomalyco/opencode/releases/tag/v1.15.0","publishedAt":"2026-05-15T04:03:57Z"}
+[INFO] 2026-05-15T14:58:52.396Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T14:58:52.879Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T14:58:52.908Z [ConnectionManager] Manager prêt {"pin":"4756"}
+[INFO] 2026-05-15T14:58:52.924Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-15T14:58:53.592Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T14:58:54.133Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T14:58:54.159Z [ConnectionManager] Manager prêt {"pin":"3552"}
+[INFO] 2026-05-15T14:58:54.176Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-15T14:58:59.631Z [Server] Mise à jour disponible {"version":"1.15.0","url":"https://github.com/anomalyco/opencode/releases/tag/v1.15.0","publishedAt":"2026-05-15T04:03:57Z"}
+[INFO] 2026-05-15T15:58:57.862Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T15:58:57.970Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T15:58:58.000Z [ConnectionManager] Manager prêt {"pin":"1281"}
+[INFO] 2026-05-15T15:58:58.015Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-15T15:58:58.428Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T15:58:58.534Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T15:58:58.560Z [ConnectionManager] Manager prêt {"pin":"1894"}
+[INFO] 2026-05-15T15:58:58.576Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-15T16:59:02.013Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T16:59:02.122Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T16:59:02.151Z [ConnectionManager] Manager prêt {"pin":"3803"}
+[INFO] 2026-05-15T16:59:02.166Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-15T16:59:02.569Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T16:59:02.674Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T16:59:02.700Z [ConnectionManager] Manager prêt {"pin":"3787"}
+[INFO] 2026-05-15T16:59:02.715Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-15T17:59:04.031Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T17:59:04.138Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T17:59:04.167Z [ConnectionManager] Manager prêt {"pin":"8338"}
+[INFO] 2026-05-15T17:59:04.182Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-15T17:59:04.586Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-15T17:59:04.691Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-15T17:59:04.717Z [ConnectionManager] Manager prêt {"pin":"9138"}
+[INFO] 2026-05-15T17:59:04.732Z [Server] Server listening {"port":9090,"version":"1.0.0"}

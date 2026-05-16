@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs>
+    <radialGradient id="g1" cx="50%" cy="0%" r="80%">
+      <stop offset="0" stop-color="#4F46E5" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#07060E" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="720" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14102C"/>
+      <stop offset="1" stop-color="#07060E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#g2)"/>
+  <rect width="1280" height="720" fill="url(#g1)"/>
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+        font-family="Bodoni Moda, serif" font-weight="600" font-size="64"
+        fill="#F5F4F0" letter-spacing="-3">DeckPad — Démo</text>
+</svg>
