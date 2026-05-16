@@ -398,3 +398,48 @@
 [INFO] 2026-05-15T17:59:04.691Z [AudioManager] Detection outillage {"nircmd":false}
 [INFO] 2026-05-15T17:59:04.717Z [ConnectionManager] Manager prêt {"pin":"9138"}
 [INFO] 2026-05-15T17:59:04.732Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-16T20:28:28.825Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-16T20:28:29.275Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-16T20:28:29.306Z [ConnectionManager] Manager prêt {"pin":"4357"}
+[INFO] 2026-05-16T20:28:29.349Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-16T20:28:29.925Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-16T20:28:30.343Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-16T20:28:30.372Z [ConnectionManager] Manager prêt {"pin":"7001"}
+[INFO] 2026-05-16T20:28:30.387Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-16T20:28:35.939Z [Server] Mise à jour disponible {"version":"1.15.3","url":"https://github.com/anomalyco/opencode/releases/tag/v1.15.3","publishedAt":"2026-05-16T14:07:35Z"}
+[INFO] 2026-05-16T20:28:49.218Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-16T20:28:49.220Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-16T20:28:56.288Z [AudioMeter] Démarrage peak meter
+[INFO] 2026-05-16T20:29:13.578Z [ScreenCapture] Démarrage FFmpeg {"fps":25,"width":1920,"height":1080,"quality":3}
+[INFO] 2026-05-16T20:29:25.147Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-16T20:29:25.148Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-16T20:29:25.149Z [ScreenCapture] Capture arrêtée (volontaire)
+[INFO] 2026-05-16T20:29:25.159Z [AudioMeter] Peak meter terminé {"code":null}
+[INFO] 2026-05-16T20:29:25.175Z [ScreenCapture] FFmpeg terminé {"code":null}
+[INFO] 2026-05-16T20:41:03.551Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-16T20:41:03.554Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-16T20:41:06.032Z [AudioMeter] Démarrage peak meter
+[INFO] 2026-05-16T20:41:29.349Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-16T20:41:29.350Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-16T20:41:29.361Z [AudioMeter] Peak meter terminé {"code":null}
+[INFO] 2026-05-16T20:44:04.418Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-16T20:44:04.418Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-16T20:44:05.129Z [AudioMeter] Démarrage peak meter
+[INFO] 2026-05-16T22:46:10.504Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-16T22:46:10.506Z [AudioMeter] Peak meter arrêté
+[INFO] 2026-05-16T22:46:10.516Z [AudioMeter] Peak meter terminé {"code":null}
+[INFO] 2026-05-16T23:19:10.546Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[INFO] 2026-05-16T23:19:10.548Z [ConnectionManager] Client authentifié
+[INFO] 2026-05-16T23:19:11.879Z [AudioMeter] Démarrage peak meter
+[INFO] 2026-05-16T23:20:12.937Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-16T23:20:13.740Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-16T23:20:13.757Z [ConnectionManager] Manager prêt {"pin":"4134"}
+[INFO] 2026-05-16T23:20:13.773Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-16T23:20:14.529Z [ScreenCapture] FFmpeg detection {"path":"C:\\Users\\robin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.1-full_build\\bin\\ffmpeg.exe","available":true}
+[INFO] 2026-05-16T23:20:15.168Z [AudioManager] Detection outillage {"nircmd":false}
+[INFO] 2026-05-16T23:20:15.184Z [ConnectionManager] Manager prêt {"pin":"4735"}
+[INFO] 2026-05-16T23:20:15.199Z [Server] Server listening {"port":9090,"version":"1.0.0"}
+[INFO] 2026-05-16T23:20:15.847Z [ConnectionManager] Nouvelle connexion {"ip":"127.0.0.1"}
+[WARN] 2026-05-16T23:20:15.849Z [ConnectionManager] Échec authentification {"pinTried":"7001"}
+[INFO] 2026-05-16T23:20:15.851Z [ConnectionManager] Client déconnecté {"ip":"127.0.0.1"}
+[INFO] 2026-05-16T23:20:15.852Z [AudioMeter] Peak meter arrêté
